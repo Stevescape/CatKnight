@@ -10,7 +10,6 @@ var dash_vector: Vector2 = Vector2.ZERO
 func enter():
 	print("dashing")
 	var input_x = Input.get_axis("move_left", "move_right")
-	var input_y = Input.get_axis("move_up", "move_down")
 	
 	if input_x == 0 and character.velocity.x != 0:
 		input_x = 1 if character.velocity.x > 0 else -1
@@ -31,7 +30,7 @@ func enter():
 func update(delta: float):
 	dash_timer -= delta
 	character.velocity.x = dash_direction * character.air_dash_speed
-	character.velocity.y += character.gravity * delta
+	character.velocity.y += character.gravity
 	character.move_and_slide()
 	
 	if dash_timer <= 0:
@@ -40,6 +39,6 @@ func update(delta: float):
 				state_transition.emit(self, "idle")
 			else:
 				state_transition.emit(self, "walking")
-	
-	if character.is_on_floor():
-		character.air_dash_available = true
+				
+func exit():
+	character.air_dash_available = true

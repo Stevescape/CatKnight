@@ -4,7 +4,7 @@ class_name Player
 # movement
 @export var speed: float = 500.0
 @export var jump_velocity: float = -700.0
-@export var gravity: float = 1400.0
+@export var gravity: float = 30
 
 # air dash
 @export var air_dash_speed: float = 1100.0

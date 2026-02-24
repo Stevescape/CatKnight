@@ -13,8 +13,8 @@ func update(delta: float):
 	if dir == 0:
 		state_transition.emit(self, "idle")
 	
-	character.velocity.x = dir * character.speed
-	character.velocity.y += character.gravity * delta
+	character.velocity.x = lerp(character.velocity.x, dir * character.speed, 0.7)
+	character.velocity.y += character.gravity
 	#print(player.velocity)
 	character.move_and_slide()
 	

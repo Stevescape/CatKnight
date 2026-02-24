@@ -13,7 +13,7 @@ func enter():
 	
 func update(delta: float):
 	# gravity
-	character.velocity.y += character.gravity * delta
+	character.velocity.y += character.gravity
 	# horizontal movement
 	var input_x = Input.get_axis("move_left", "move_right")
 	
