@@ -14,6 +14,7 @@ func _ready():
 		if initial_state:
 			initial_state.enter()
 			current_state = initial_state
+	
 
 func _process(delta):
 	if current_state:
@@ -23,7 +24,7 @@ func force_change_state(new_state_name: String):
 	var new_state = states.get(new_state_name.to_lower())
 	
 	if !new_state:
-		print(new_state + " does not exist in the state machine")
+		print(new_state_name + " does not exist in the state machine")
 		return
 		
 	if current_state == new_state:
@@ -44,7 +45,7 @@ func change_state(old_state : State, new_state_name: String):
 	
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
-		print(new_state + " does not exist in the state machine")
+		print(new_state_name + " does not exist in the state machine")
 		return
 		
 	if current_state:

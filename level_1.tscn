@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c3p6cjtjo53nb"]
 
 [ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://b5rgfk5r6f7jw" path="res://scripts/state_machine/state_machine.gd" id="2_hbghi"]
+[ext_resource type="Script" uid="uid://biwqyribwcxg5" path="res://scripts/player_states/player_idle_state.gd" id="3_ihfcg"]
+[ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(125, 124)
@@ -20,6 +23,18 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hbghi")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1717357528]
+
+[node name="StateMachine" type="Node" parent="Player" unique_id=878981145 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_hbghi")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="Player/StateMachine" unique_id=1588834990]
+script = ExtResource("3_ihfcg")
+
+[node name="walking" type="Node" parent="Player/StateMachine" unique_id=944698651 node_paths=PackedStringArray("player")]
+script = ExtResource("4_rka8t")
+player = NodePath("../..")
+speed = 1000.0
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
 
