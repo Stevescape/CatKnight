@@ -44,6 +44,7 @@ script = ExtResource("5_rka8t")
 
 [node name="dashing" type="Node" parent="Player/StateMachine" unique_id=465759398]
 script = ExtResource("7_j7kpp")
+state_name = null
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
 

@@ -1,0 +1,45 @@
+extends State
+class_name PlayerAirDashingState
+
+@export var state_name: String = "dashing"
+
+var dash_timer: float = 0.0
+var dash_direction: float = 0.0
+var dash_vector: Vector2 = Vector2.ZERO
+
+func enter():
+	print("dashing")
+	var input_x = Input.get_axis("move_left", "move_right")
+	var input_y = Input.get_axis("move_up", "move_down")
+	
+	if input_x == 0 and character.velocity.x != 0:
+		input_x = 1 if character.velocity.x > 0 else -1
+
+	if input_x != 0:
+		dash_direction = input_x
+	elif character.velocity.x != 0:
+		dash_direction = 1 if character.velocity.x > 0 else -1
+	else:
+		dash_direction = 1
+		
+	character.air_dash_available = false
+	dash_timer = character.air_dash_duration
+	character.velocity.y = -250
+	character.velocity.x = dash_direction * character.air_dash_speed
+	
+		
+func update(delta: float):
+	dash_timer -= delta
+	character.velocity.x = dash_direction * character.air_dash_speed
+	character.velocity.y += character.gravity * delta
+	character.move_and_slide()
+	
+	if dash_timer <= 0:
+		if character.is_on_floor():
+			if character.velocity.x == 0:
+				state_transition.emit(self, "idle")
+			else:
+				state_transition.emit(self, "walking")
+	
+	if character.is_on_floor():
+		character.air_dash_available = true

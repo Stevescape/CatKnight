@@ -10,6 +10,7 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
+			child.character = self.get_parent()
 			
 		if initial_state:
 			initial_state.enter()
