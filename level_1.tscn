@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c3p6cjtjo53nb"]
 
 [ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="1_3hls8"]
-[ext_resource type="Script" uid="uid://chsuw5u61gtq2" path="res://player_controller.gd" id="1_hbghi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(125, 124)
@@ -12,7 +11,6 @@ size = Vector2(127.8889, 110.22223)
 [node name="Node2D" type="Node2D" unique_id=1560109685]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
-script = ExtResource("1_hbghi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=367188582]
 texture = ExtResource("1_3hls8")
