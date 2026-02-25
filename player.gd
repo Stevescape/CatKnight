@@ -2,13 +2,13 @@ extends CharacterBody2D
 class_name Player
 
 # movement
-@export var speed: float = 500.0
-@export var jump_velocity: float = -1100.0
-@export var gravity: float = 35
+@export var speed: float = 1000.0
+@export var jump_velocity: float = -1800.0
+@export var gravity: float = 75
 
 # air dash
-@export var air_dash_speed: float = 1100.0
-@export var air_dash_duration: float = 0.10
+@export var air_dash_speed: float = 1500.0
+@export var air_dash_duration: float = 0.2
 var air_dash_available: bool = true # resets on landing
 
 @onready var sm: Node = $StateMachine
