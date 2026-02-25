@@ -39,6 +39,7 @@ func update(delta: float):
 				state_transition.emit(self, "idle")
 			else:
 				state_transition.emit(self, "walking")
+			return
 				
 func exit():
 	character.air_dash_available = true

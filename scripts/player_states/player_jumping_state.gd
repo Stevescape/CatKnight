@@ -27,13 +27,17 @@ func update(delta: float):
 	if Input.is_action_just_pressed("pounce") and character.air_dash_available:
 		print("pressed dash")
 		state_transition.emit(self, "dashing")
+		return
 	
 	if character.is_on_floor():
 		character.air_dash_available = true
 		if input_x == 0:
 			state_transition.emit(self, "idle")
+			return
 		else:
 			state_transition.emit(self, "walking")
+			return
 			
 	if !character.is_on_floor() and character.velocity.y > 0:
 		state_transition.emit(self, "falling")
+		return
