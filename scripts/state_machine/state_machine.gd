@@ -10,13 +10,14 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.state_transition.connect(change_state)
+			child.character = self.get_parent()
 			
 		if initial_state:
 			initial_state.enter()
 			current_state = initial_state
 	
 
-func _process(delta):
+func _physics_process(delta):
 	if current_state:
 		current_state.update(delta)
 
