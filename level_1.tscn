@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://dg4cosx3i185n" path="res://player.gd" id="1_5hph3"]
+[ext_resource type="Script" uid="uid://s5mbaf4tw5j6" path="res://follow_player.gd" id="1_bjebc"]
 [ext_resource type="Script" uid="uid://b5rgfk5r6f7jw" path="res://scripts/state_machine/state_machine.gd" id="2_hbghi"]
 [ext_resource type="Script" uid="uid://biwqyribwcxg5" path="res://scripts/player_states/player_idle_state.gd" id="3_ihfcg"]
 [ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
@@ -16,6 +17,11 @@ size = Vector2(127.8889, 110.22223)
 
 [node name="Node2D" type="Node2D" unique_id=1560109685]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_bjebc")
+character = NodePath("../Player")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
 script = ExtResource("1_5hph3")
 
@@ -25,8 +31,6 @@ texture = ExtResource("1_3hls8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hbghi")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1717357528]
 
 [node name="StateMachine" type="Node" parent="Player" unique_id=878981145 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_hbghi")
