@@ -8,12 +8,19 @@ var horizontal_velocity: float = 0 # store momentum from walking
 func enter():
 	horizontal_velocity = character.velocity.x
 	character.velocity.y = character.jump_velocity
-	#sprite.animation = "jump"
 	print("jump")     
 	
 func update(delta: float):
-	# gravity
-	character.velocity.y += character.gravity
+	# different types of jumps
+	if character.velocity.y < 0 and not Input.is_action_pressed("jump"):
+		# released early → short jump
+		print("min jump")
+		character.velocity.y += character.gravity * character.jump_cut_multiplier
+	else:
+		# space held → long jump
+		print("normal jump")
+		character.velocity.y += character.gravity
+	
 	# horizontal movement
 	var input_x = Input.get_axis("move_left", "move_right")
 	

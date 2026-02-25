@@ -14,3 +14,7 @@ var air_dash_available: bool = true # resets on landing
 @onready var sm: Node = $StateMachine
 
 var horizontal_input: float = 0.0
+
+# jump settings
+@export var jump_cut_multiplier = 5
+@export var fall_gravity_multiplier = 10
