@@ -19,6 +19,9 @@ func update(delta: float):
 	if dir == 0:
 		state_transition.emit(self, "idle")
 	
+	if !character.is_on_floor() and character.velocity.y > 0:
+		state_transition.emit(self, "falling")
+		
 	character.velocity.x = lerp(character.velocity.x, dir * character.speed, 0.7)
 	character.velocity.y += character.gravity
 	#print(player.velocity)

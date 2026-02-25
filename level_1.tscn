@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
 [ext_resource type="Script" uid="uid://b4d4tg6b0ylnx" path="res://scripts/player_states/player_jumping_state.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://ce7kgxthk47qa" path="res://scripts/player_states/player_dashing_state.gd" id="7_j7kpp"]
+[ext_resource type="Script" uid="uid://77uif1q7mvw" path="res://scripts/player_states/player_fall_state.gd" id="9_5rr72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(125, 124)
@@ -48,6 +49,9 @@ script = ExtResource("5_rka8t")
 
 [node name="dashing" type="Node" parent="Player/StateMachine" unique_id=465759398]
 script = ExtResource("7_j7kpp")
+
+[node name="falling" type="Node" parent="Player/StateMachine" unique_id=1961985170]
+script = ExtResource("9_5rr72")
 
 [node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
 
