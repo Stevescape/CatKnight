@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://c3p6cjtjo53nb"]
+
+[ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://dg4cosx3i185n" path="res://player.gd" id="1_5hph3"]
+[ext_resource type="Script" uid="uid://s5mbaf4tw5j6" path="res://follow_player.gd" id="1_bjebc"]
+[ext_resource type="Script" uid="uid://b5rgfk5r6f7jw" path="res://scripts/state_machine/state_machine.gd" id="2_hbghi"]
+[ext_resource type="Script" uid="uid://biwqyribwcxg5" path="res://scripts/player_states/player_idle_state.gd" id="3_ihfcg"]
+[ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
+[ext_resource type="Script" uid="uid://b4d4tg6b0ylnx" path="res://scripts/player_states/player_jumping_state.gd" id="5_rka8t"]
+[ext_resource type="Script" uid="uid://ce7kgxthk47qa" path="res://scripts/player_states/player_dashing_state.gd" id="7_j7kpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
+size = Vector2(125, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
+size = Vector2(127.8889, 110.22223)
+
+[node name="Node2D" type="Node2D" unique_id=1560109685]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("1_bjebc")
+character = NodePath("../Player")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
+script = ExtResource("1_5hph3")
+speed = null
+jump_velocity = null
+gravity = null
+air_dash_speed = null
+air_dash_duration = null
+coyote_time = null
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=367188582]
+texture = ExtResource("1_3hls8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_hbghi")
+
+[node name="StateMachine" type="Node" parent="Player" unique_id=878981145 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_hbghi")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="Player/StateMachine" unique_id=1588834990]
+script = ExtResource("3_ihfcg")
+
+[node name="walking" type="Node" parent="Player/StateMachine" unique_id=944698651]
+script = ExtResource("4_rka8t")
+speed = 1000.0
+
+[node name="jumping" type="Node" parent="Player/StateMachine" unique_id=544852]
+script = ExtResource("5_rka8t")
+
+[node name="dashing" type="Node" parent="Player/StateMachine" unique_id=465759398]
+script = ExtResource("7_j7kpp")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=907737692]
+position = Vector2(21.500015, 110.5)
+scale = Vector2(9, 0.28125)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=313790536]
+position = Vector2(23, 113)
+scale = Vector2(9, 0.28125)
+texture = ExtResource("1_3hls8")

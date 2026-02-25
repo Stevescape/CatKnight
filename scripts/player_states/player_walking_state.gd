@@ -5,7 +5,13 @@ class_name PlayerWalkingState
 @export var state_name: String = "walking"
 
 func update(delta: float):
-	if Input.is_action_just_pressed("jump") and character.is_on_floor():
+	if character.is_on_floor():
+		character.coyote_timer = character.coyote_time
+	else:
+		character.coyote_timer = max(character.coyote_timer - delta, 0.0)
+	
+	if Input.is_action_just_pressed("jump") and character.coyote_timer > 0.0:
+		character.coyote_timer = 0.0
 		state_transition.emit(self, "jumping")
 		return
 	

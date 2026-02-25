@@ -11,6 +11,9 @@ class_name Player
 @export var air_dash_duration: float = 0.10
 var air_dash_available: bool = true # resets on landing
 
+@export var coyote_time: float = 0.15
+var coyote_timer: float = 0.0
+
 @onready var sm: Node = $StateMachine
 
 var horizontal_input: float = 0.0
