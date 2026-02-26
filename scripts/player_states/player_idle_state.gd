@@ -5,6 +5,10 @@ class_name PlayerIdle
 @export var state_name: String = "idle"
 
 func update(delta: float):
+	character.velocity.y += character.gravity
+	character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
+	character.move_and_slide()
+	
 	if character.is_on_floor():
 		character.coyote_timer.start()
 	
@@ -20,9 +24,7 @@ func update(delta: float):
 		state_transition.emit(self, "falling")
 		return
 		
-	character.velocity.y += character.gravity
-	character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
-	character.move_and_slide()
+	
 
 		
 	

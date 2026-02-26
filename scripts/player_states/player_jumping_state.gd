@@ -8,6 +8,7 @@ var horizontal_velocity: float = 0 # store momentum from walking
 func enter():
 	horizontal_velocity = character.velocity.x * 0.4
 	character.velocity.y = character.jump_velocity
+	character.coyote_timer.stop()
 	print("jump")     
 	
 func update(delta: float):
@@ -25,13 +26,12 @@ func update(delta: float):
 	var input_x = Input.get_axis("move_left", "move_right")
 
 	var temp := 0.0
+	# Lose original horizontal momentum overtime
 	if horizontal_velocity != 0:
 		temp += horizontal_velocity
 		horizontal_velocity = lerp(horizontal_velocity, 0.0, 0.1)
-	
 		
 	if input_x != 0: 
-		###horizontal_velocity = input_x * character.speed * 0.8
 		temp += input_x * character.speed * 0.6
 	
 	character.velocity.x = temp

@@ -23,7 +23,7 @@ func update(delta: float):
 	# horizontal movement (air control)
 	var input_x = Input.get_axis("move_left", "move_right")
 	if input_x != 0:
-		horizontal_velocity = input_x * character.speed * 0.8
+		horizontal_velocity = input_x * character.speed * 0.6
 	character.velocity.x = horizontal_velocity
 
 	character.move_and_slide()
