@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
 [ext_resource type="Script" uid="uid://b4d4tg6b0ylnx" path="res://scripts/player_states/player_jumping_state.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://ce7kgxthk47qa" path="res://scripts/player_states/player_dashing_state.gd" id="7_j7kpp"]
-[ext_resource type="Script" uid="uid://77uif1q7mvw" path="res://scripts/player_states/player_fall_state.gd" id="9_5rr72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(125, 124)
@@ -25,6 +24,12 @@ character = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
 script = ExtResource("1_5hph3")
+speed = null
+jump_velocity = null
+gravity = null
+air_dash_speed = null
+air_dash_duration = null
+coyote_time = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=367188582]
 texture = ExtResource("1_3hls8")
@@ -50,9 +55,6 @@ script = ExtResource("5_rka8t")
 [node name="dashing" type="Node" parent="Player/StateMachine" unique_id=465759398]
 script = ExtResource("7_j7kpp")
 
-[node name="falling" type="Node" parent="Player/StateMachine" unique_id=1961985170]
-script = ExtResource("9_5rr72")
-
 [node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=907737692]
@@ -61,32 +63,6 @@ scale = Vector2(9, 0.28125)
 shape = SubResource("RectangleShape2D_hn12h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform" unique_id=313790536]
-position = Vector2(23, 113)
-scale = Vector2(9, 0.28125)
-texture = ExtResource("1_3hls8")
-
-[node name="Platform2" type="StaticBody2D" parent="." unique_id=1450157]
-position = Vector2(1542, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=6118436]
-position = Vector2(21.500015, 110.5)
-scale = Vector2(9, 0.28125)
-shape = SubResource("RectangleShape2D_hn12h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform2" unique_id=91097791]
-position = Vector2(23, 113)
-scale = Vector2(9, 0.28125)
-texture = ExtResource("1_3hls8")
-
-[node name="Platform3" type="StaticBody2D" parent="." unique_id=1802692941]
-position = Vector2(818, -273)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1569838632]
-position = Vector2(21.500015, 110.5)
-scale = Vector2(9, 0.28125)
-shape = SubResource("RectangleShape2D_hn12h")
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform3" unique_id=504545497]
 position = Vector2(23, 113)
 scale = Vector2(9, 0.28125)
 texture = ExtResource("1_3hls8")
