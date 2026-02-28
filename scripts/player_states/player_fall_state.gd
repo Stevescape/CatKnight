@@ -35,6 +35,8 @@ func update(delta: float):
 
 	# landed
 	if character.is_on_floor():
+		character.spawn_dust()
+		character.shake_camera()
 		character.air_dash_available = true
 		if input_x == 0:
 			state_transition.emit(self, "idle")

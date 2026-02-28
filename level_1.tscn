@@ -20,8 +20,9 @@ size = Vector2(127.8889, 110.22223)
 [node name="Node2D" type="Node2D" unique_id=1560109685]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 script = ExtResource("1_bjebc")
+max_screenshake = 1.0
 character = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
@@ -29,7 +30,7 @@ script = ExtResource("1_5hph3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
 sprite_frames = ExtResource("3_gyffv")
-animation = &"walk"
+animation = &"pounce"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
 position = Vector2(0, 1)

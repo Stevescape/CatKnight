@@ -5,6 +5,7 @@ class_name Player
 @export var speed: float = 250.0
 @export var jump_velocity: float = -450.0
 @export var gravity: float = 18.75
+var acceleration: float = speed * 20
 
 # air dash
 @export var air_dash_speed: float = 375.0
@@ -22,6 +23,9 @@ var horizontal_input: float = 0.0
 @export var jump_cut_multiplier = 5
 @export var fall_gravity_multiplier = 10
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+@onready var dust = preload("res://resources/Dust.tscn")
+@onready var camera = get_tree().root.get_child(0).get_node("Camera2D")
 
 var sprites: Array = [
 	preload("res://sprites/helmetless.tres"),
@@ -48,6 +52,16 @@ var cur_sprite: int = 0:
 		
 		if not was_playing:
 			anim_sprite.stop()
+
+func spawn_dust():
+	var obj = dust.instantiate()
+	get_tree().root.add_child(obj)
+	obj.global_position = global_position
+	
+func shake_camera():
+	print(camera)
+	if camera != null:
+		camera.shake_camera()
 
 func _ready():
 	coyote_timer = Timer.new()

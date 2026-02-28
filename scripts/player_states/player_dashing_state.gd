@@ -9,6 +9,10 @@ var dash_vector: Vector2 = Vector2.ZERO
 
 func enter():
 	print("dashing")
+	if character.anim_sprite != null:
+		character.anim_sprite.play("pounce")
+	character.spawn_dust()
+	
 	var input_x = Input.get_axis("move_left", "move_right")
 	
 	if input_x == 0 and character.velocity.x != 0:
@@ -43,3 +47,4 @@ func update(delta: float):
 				
 func exit():
 	character.air_dash_available = true
+	character.shake_camera()

@@ -9,6 +9,7 @@ func enter():
 	var player_script = character as Player
 	if player_script.anim_sprite != null:
 		player_script.anim_sprite.play("jump")
+	character.spawn_dust()
 	horizontal_velocity = character.velocity.x * 0.4
 	character.velocity.y = character.jump_velocity
 	character.coyote_timer.stop()
@@ -32,7 +33,7 @@ func update(delta: float):
 	# Lose original horizontal momentum overtime
 	if horizontal_velocity != 0:
 		temp += horizontal_velocity
-		horizontal_velocity = lerp(horizontal_velocity, 0.0, 0.1)
+		horizontal_velocity = move_toward(horizontal_velocity, 0.0, character.acceleration * delta)
 		
 	if input_x != 0: 
 		temp += input_x * character.speed * 0.6

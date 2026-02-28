@@ -10,7 +10,7 @@ func enter():
 
 func update(delta: float):
 	character.velocity.y += character.gravity
-	character.velocity.x = lerp(character.velocity.x, 0.0, 0.2)
+	character.velocity.x = move_toward(character.velocity.x, 0.0, character.acceleration * delta)
 	character.move_and_slide()
 	
 	if character.is_on_floor():

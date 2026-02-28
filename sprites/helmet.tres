@@ -22,6 +22,14 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("1_gpffm")
 region = Rect2(64, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpffm"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gilym"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(32, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyffv"]
 atlas = ExtResource("1_gpffm")
 region = Rect2(0, 64, 32, 32)
@@ -64,6 +72,17 @@ animations = [{
 "loop": false,
 "name": &"jump",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpffm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gilym")
+}],
+"loop": false,
+"name": &"pounce",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
