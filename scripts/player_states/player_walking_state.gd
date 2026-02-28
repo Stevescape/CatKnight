@@ -4,12 +4,16 @@ class_name PlayerWalkingState
 @export var speed: float = 15 
 @export var state_name: String = "walking"
 
+func enter():
+	if character.anim_sprite != null:
+		character.anim_sprite.play("walk")
+
 func update(delta: float):
 	if character.is_on_floor():
 		character.coyote_timer.start()
 		
 	var dir = Input.get_axis("move_left", "move_right")
-	if dir == 0:
+	if character.velocity.x == 0 and dir == 0:
 		state_transition.emit(self, "idle")
 		return
 	

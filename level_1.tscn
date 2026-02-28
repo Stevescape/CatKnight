@@ -4,14 +4,96 @@
 [ext_resource type="Script" uid="uid://dg4cosx3i185n" path="res://player.gd" id="1_5hph3"]
 [ext_resource type="Script" uid="uid://s5mbaf4tw5j6" path="res://follow_player.gd" id="1_bjebc"]
 [ext_resource type="Script" uid="uid://b5rgfk5r6f7jw" path="res://scripts/state_machine/state_machine.gd" id="2_hbghi"]
+[ext_resource type="Texture2D" uid="uid://c4sf77ia7003x" path="res://sprites/kitty_knight.png" id="3_gyffv"]
 [ext_resource type="Script" uid="uid://biwqyribwcxg5" path="res://scripts/player_states/player_idle_state.gd" id="3_ihfcg"]
 [ext_resource type="Script" uid="uid://dm18rbru5j025" path="res://scripts/player_states/player_walking_state.gd" id="4_rka8t"]
 [ext_resource type="Script" uid="uid://b4d4tg6b0ylnx" path="res://scripts/player_states/player_jumping_state.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://ce7kgxthk47qa" path="res://scripts/player_states/player_dashing_state.gd" id="7_j7kpp"]
 [ext_resource type="Script" uid="uid://77uif1q7mvw" path="res://scripts/player_states/player_fall_state.gd" id="9_5rr72"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pe0h"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27bay"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sof0w"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggavl"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubhxj"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyffv"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65or1"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhbbi"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjkv5"]
+atlas = ExtResource("3_gyffv")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65or1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pe0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27bay")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sof0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggavl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubhxj")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyffv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65or1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhbbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjkv5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
-size = Vector2(125, 124)
+size = Vector2(16, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
 size = Vector2(127.8889, 110.22223)
@@ -19,18 +101,19 @@ size = Vector2(127.8889, 110.22223)
 [node name="Node2D" type="Node2D" unique_id=1560109685]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(3, 3)
 script = ExtResource("1_bjebc")
 character = NodePath("../Player")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
 script = ExtResource("1_5hph3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=367188582]
-texture = ExtResource("1_3hls8")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
+sprite_frames = SubResource("SpriteFrames_65or1")
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
-position = Vector2(0, -1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_hbghi")
 
 [node name="StateMachine" type="Node" parent="Player" unique_id=878981145 node_paths=PackedStringArray("initial_state")]
@@ -79,7 +162,7 @@ scale = Vector2(9, 0.28125)
 texture = ExtResource("1_3hls8")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=1802692941]
-position = Vector2(818, -273)
+position = Vector2(778, -148)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1569838632]
 position = Vector2(21.500015, 110.5)

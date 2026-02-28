@@ -6,6 +6,9 @@ class_name PlayerJumpingState
 
 var horizontal_velocity: float = 0 # store momentum from walking
 func enter():
+	var player_script = character as Player
+	if player_script.anim_sprite != null:
+		player_script.anim_sprite.play("jump")
 	horizontal_velocity = character.velocity.x * 0.4
 	character.velocity.y = character.jump_velocity
 	character.coyote_timer.stop()
