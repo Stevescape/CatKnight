@@ -23,6 +23,32 @@ var horizontal_input: float = 0.0
 @export var fall_gravity_multiplier = 10
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var sprites: Array = [
+	preload("res://sprites/helmetless.tres"),
+	preload("res://sprites/helmet.tres")
+]
+
+# 0 is helmetless
+# 1 is helmet
+var cur_sprite: int = 0:
+	set(value):
+		cur_sprite = value
+		
+		# Save current animation info
+		var anim = anim_sprite.animation
+		var frame = anim_sprite.frame
+		var was_playing = anim_sprite.is_playing()
+		
+		# Update sprite frames
+		anim_sprite.sprite_frames = sprites[cur_sprite]
+		
+		# Restore animation
+		anim_sprite.play(anim)
+		anim_sprite.frame = frame
+		
+		if not was_playing:
+			anim_sprite.stop()
+
 func _ready():
 	coyote_timer = Timer.new()
 	add_child(coyote_timer)
@@ -33,6 +59,12 @@ func start_coyote_timer():
 	coyote_timer.start()
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		if cur_sprite == 0:
+			cur_sprite = 1
+		else:
+			cur_sprite = 0
+	
 	if velocity.x > 0:
 		anim_sprite.flip_h = true
 	elif velocity.x < 0:
