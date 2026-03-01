@@ -21,12 +21,15 @@ func update(delta: float):
 	character.velocity.y += character.gravity
 	#print(player.velocity)
 	character.move_and_slide()
+	character.global_position = character.global_position.round()
 	
 	if !character.is_on_floor() and character.velocity.y > 0:
 		state_transition.emit(self, "falling")
 		return
 		
-	
+	if Input.is_action_just_pressed("pounce") and character.air_dash_available:
+		state_transition.emit(self, "dashing")
+		return
 	
 	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0:
 		state_transition.emit(self, "jumping")

@@ -32,6 +32,10 @@ var sprites: Array = [
 	preload("res://sprites/helmet.tres")
 ]
 
+enum Direction { LEFT= -1, RIGHT=1 }
+
+var last_direction: Direction = Direction.RIGHT
+
 # 0 is helmetless
 # 1 is helmet
 var cur_sprite: int = 0:
@@ -59,7 +63,6 @@ func spawn_dust():
 	obj.global_position = global_position
 	
 func shake_camera():
-	print(camera)
 	if camera != null:
 		camera.shake_camera()
 
@@ -81,5 +84,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x > 0:
 		anim_sprite.flip_h = true
+		last_direction = Direction.RIGHT
 	elif velocity.x < 0:
 		anim_sprite.flip_h = false
+		last_direction = Direction.LEFT
+		
+	

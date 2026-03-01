@@ -23,7 +23,7 @@ func enter():
 	elif character.velocity.x != 0:
 		dash_direction = 1 if character.velocity.x > 0 else -1
 	else:
-		dash_direction = 1
+		dash_direction = character.last_direction
 		
 	character.air_dash_available = false
 	dash_timer = character.air_dash_duration
@@ -36,7 +36,7 @@ func update(delta: float):
 	character.velocity.x = dash_direction * character.air_dash_speed
 	character.velocity.y += character.gravity
 	character.move_and_slide()
-	
+	character.global_position = character.global_position.round()
 	if dash_timer <= 0:
 		if character.is_on_floor():
 			if character.velocity.x == 0:
@@ -48,3 +48,4 @@ func update(delta: float):
 func exit():
 	character.air_dash_available = true
 	character.shake_camera()
+	character.spawn_dust()

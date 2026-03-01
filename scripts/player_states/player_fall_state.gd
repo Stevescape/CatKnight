@@ -13,7 +13,7 @@ func enter():
 
 func update(delta: float):
 	# gravity
-	character.velocity.y += character.gravity
+	character.velocity.y += character.gravity * 1.2
 	
 	# Want to be able to jump while falling if coyote timer is available
 	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0:
@@ -27,7 +27,7 @@ func update(delta: float):
 	character.velocity.x = horizontal_velocity
 
 	character.move_and_slide()
-
+	character.global_position = character.global_position.round()
 	# air dash / pounce
 	if Input.is_action_just_pressed("pounce") and character.air_dash_available:
 		state_transition.emit(self, "dashing")
