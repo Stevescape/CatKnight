@@ -13,7 +13,7 @@ func enter():
 
 func update(delta: float):
 	# gravity
-	character.velocity.y += character.gravity * 0.7
+	character.velocity.y += character.gravity
 	
 	# Want to be able to jump while falling if coyote timer is available
 	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0 and character.jump_available:

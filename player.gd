@@ -3,8 +3,9 @@ class_name Player
 
 # movement
 @export var speed: float = 250.0
-@export var jump_velocity: float = -450.0
-@export var gravity: float = 18.75
+@export var max_jump_height: float = 100
+@export var time_to_reach_peak: float = 0.4
+
 var acceleration: float = speed * 20
 var jump_available: bool = true # resets on landing
 
@@ -19,6 +20,11 @@ var coyote_timer: Timer
 @onready var sm: Node = $StateMachine
 
 var horizontal_input: float = 0.0
+
+# DO NOT EDIT THESE -450.0 | 18.75
+# THEY ARE CALCULATED FROM TIME_TO_REACH_PEAK AND MAX_JUMP_HEIGHT
+var jump_velocity: float = 0
+var gravity: float = 0
 
 # jump settings
 @export var jump_cut_multiplier = 5
@@ -63,6 +69,13 @@ var cur_sprite: int = 0:
 		if not was_playing:
 			anim_sprite.stop()
 
+func _calculate_initial_velocity():
+	jump_velocity = (-2 * max_jump_height)/(time_to_reach_peak)
+
+func _calculate_gravity():
+	gravity = (2 * max_jump_height)/pow(time_to_reach_peak, 2)
+	gravity = gravity/60
+
 func spawn_dust():
 	var obj = dust.instantiate()
 	get_tree().root.add_child(obj)
@@ -84,6 +97,10 @@ func _ready():
 	add_child(coyote_timer)
 	coyote_timer.wait_time = coyote_time
 	coyote_timer.one_shot = true
+	_calculate_gravity()
+	_calculate_initial_velocity()
+	print(jump_velocity)
+	print(gravity)
 	
 func start_coyote_timer():
 	coyote_timer.start()
