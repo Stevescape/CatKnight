@@ -17,9 +17,7 @@ func _ready():
 	min_jump_timer.one_shot = true
 
 func enter():
-	var player_script = character as Player
-	if player_script.anim_sprite != null:
-		player_script.anim_sprite.play("jump")
+	character.play_animation("jump")
 	character.spawn_dust()
 	horizontal_velocity = character.velocity.x * 0.4
 	character.velocity.y = character.jump_velocity

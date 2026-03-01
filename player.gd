@@ -9,7 +9,7 @@ var acceleration: float = speed * 20
 
 # air dash
 @export var air_dash_speed: float = 375.0
-@export var air_dash_duration: float = 0.2
+@export var air_dash_duration: float = 1
 var air_dash_available: bool = true # resets on landing
 
 @export var coyote_time: float = 0.15
@@ -34,6 +34,10 @@ var sprites: Array = [
 
 enum Direction { LEFT= -1, RIGHT=1 }
 
+var direction_suffix = {
+	Direction.LEFT: "_left",
+	Direction.RIGHT: "_right"
+}
 var last_direction: Direction = Direction.RIGHT
 
 # 0 is helmetless
@@ -62,6 +66,13 @@ func spawn_dust():
 	get_tree().root.add_child(obj)
 	obj.global_position = global_position
 	
+func anim_suffix():
+	return direction_suffix[last_direction]
+
+func play_animation(name: String):
+	if anim_sprite != null:
+		anim_sprite.play(name + anim_suffix())
+
 func shake_camera():
 	if camera != null:
 		camera.shake_camera()
@@ -75,6 +86,20 @@ func _ready():
 func start_coyote_timer():
 	coyote_timer.start()
 	
+func refresh_anim():
+	if anim_sprite != null:
+		# Save current animation info
+		var anim = anim_sprite.animation.trim_suffix("_left").trim_suffix("_right")
+		var frame = anim_sprite.frame
+		var was_playing = anim_sprite.is_playing()	
+		
+		# Restore animation
+		play_animation(anim)
+		anim_sprite.frame = frame
+		
+		if not was_playing:
+			anim_sprite.stop()
+	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if cur_sprite == 0:
@@ -82,11 +107,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			cur_sprite = 0
 	
-	if velocity.x > 0:
-		anim_sprite.flip_h = true
+	
+	if Input.is_action_just_pressed("move_right"):
 		last_direction = Direction.RIGHT
-	elif velocity.x < 0:
-		anim_sprite.flip_h = false
+		refresh_anim()
+	elif Input.is_action_just_pressed("move_left"):
 		last_direction = Direction.LEFT
+		refresh_anim()
 		
 	

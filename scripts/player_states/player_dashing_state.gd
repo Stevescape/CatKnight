@@ -9,8 +9,7 @@ var dash_vector: Vector2 = Vector2.ZERO
 
 func enter():
 	print("dashing")
-	if character.anim_sprite != null:
-		character.anim_sprite.play("pounce")
+	character.play_animation("pounce")
 	character.spawn_dust()
 	
 	var input_x = Input.get_axis("move_left", "move_right")
@@ -37,15 +36,18 @@ func update(delta: float):
 	character.velocity.y += character.gravity
 	character.move_and_slide()
 	character.global_position = character.global_position.round()
+	
+	if character.is_on_floor():
+		if character.velocity.x == 0:
+			state_transition.emit(self, "idle")
+		else:
+			state_transition.emit(self, "walking")
+		character.spawn_dust()
+		character.shake_camera()
+		return
+	
 	if dash_timer <= 0:
-		if character.is_on_floor():
-			if character.velocity.x == 0:
-				state_transition.emit(self, "idle")
-			else:
-				state_transition.emit(self, "walking")
-			return
+		state_transition.emit(self, "falling")
 				
 func exit():
 	character.air_dash_available = true
-	character.shake_camera()
-	character.spawn_dust()

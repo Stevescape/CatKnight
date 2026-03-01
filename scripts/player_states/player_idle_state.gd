@@ -4,9 +4,7 @@ class_name PlayerIdle
 @export var state_name: String = "idle"
 
 func enter():
-	var player_script = character as Player
-	if player_script.anim_sprite != null:
-		player_script.anim_sprite.play("idle")
+	character.play_animation("idle")
 
 func update(delta: float):
 	character.velocity.y += character.gravity

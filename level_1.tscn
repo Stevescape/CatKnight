@@ -42,7 +42,7 @@ script = ExtResource("1_5hph3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
 sprite_frames = ExtResource("3_gyffv")
-animation = &"pounce"
+animation = &"pounce_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
 position = Vector2(0, 1)

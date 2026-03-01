@@ -5,8 +5,7 @@ class_name PlayerWalkingState
 @export var state_name: String = "walking"
 
 func enter():
-	if character.anim_sprite != null:
-		character.anim_sprite.play("walk")
+	character.play_animation("walk")
 
 func update(delta: float):
 	if character.is_on_floor():
