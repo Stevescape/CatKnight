@@ -3,7 +3,7 @@ class_name PlayerJumpingState
 
 @export var sprite: AnimatedSprite2D
 @export var state_name: String = "jumping"
-@export var min_jump_duration: float = 0.2
+
 
 # If jump is held shorter than this, default to this
 var min_jump_timer: Timer
@@ -13,10 +13,11 @@ var horizontal_velocity: float = 0 # store momentum from walking
 func _ready():
 	min_jump_timer = Timer.new()
 	add_child(min_jump_timer)
-	min_jump_timer.wait_time = min_jump_duration
+	min_jump_timer.wait_time = 0.2
 	min_jump_timer.one_shot = true
 
 func enter():
+	min_jump_timer.wait_time = character.min_jump_duration
 	character.play_animation("jump")
 	character.spawn_dust()
 	horizontal_velocity = character.velocity.x * 0.4

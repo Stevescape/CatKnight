@@ -8,6 +8,7 @@ class_name Player
 
 var acceleration: float = speed * 20
 var jump_available: bool = true # resets on landing
+var min_jump_duration: float = 0.2
 
 # air dash
 @export var air_dash_speed: float = 375.0
@@ -134,6 +135,12 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("move_down") and on_dropdown_platform():
 		velocity.y += 50
+	
+	if Input.is_action_just_pressed("k"):
+		if min_jump_duration == 0.2:
+			min_jump_duration = 10
+		else:
+			min_jump_duration = 0.2
 		
 	if Input.is_action_pressed("move_down"):
 		set_collision_mask_value(5, false)
