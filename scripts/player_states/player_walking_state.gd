@@ -10,6 +10,8 @@ func enter():
 func update(delta: float):
 	if character.is_on_floor():
 		character.coyote_timer.start()
+		character.jump_available = true
+		character.air_dash_available = true
 		
 	var dir = Input.get_axis("move_left", "move_right")
 	if character.velocity.x == 0 and dir == 0:
@@ -30,7 +32,7 @@ func update(delta: float):
 		state_transition.emit(self, "dashing")
 		return
 	
-	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0:
+	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0 and character.jump_available:
 		state_transition.emit(self, "jumping")
 		return
 	

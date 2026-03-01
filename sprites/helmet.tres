@@ -2,6 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://c4sf77ia7003x" path="res://sprites/kitty_knight.png" id="1_gpffm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x73hf"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyac5"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsjhd"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eplnl"]
+atlas = ExtResource("1_gpffm")
+region = Rect2(32, 288, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pe0h"]
 atlas = ExtResource("1_gpffm")
 region = Rect2(0, 0, 32, 32)
@@ -92,6 +108,28 @@ region = Rect2(96, 192, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x73hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyac5")
+}],
+"loop": true,
+"name": &"fall_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsjhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eplnl")
+}],
+"loop": true,
+"name": &"fall_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1pe0h")

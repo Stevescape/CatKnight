@@ -3,7 +3,7 @@ class_name PlayerJumpingState
 
 @export var sprite: AnimatedSprite2D
 @export var state_name: String = "jumping"
-@export var min_jump_duration: float = 0.1
+@export var min_jump_duration: float = 0.2
 
 # If jump is held shorter than this, default to this
 var min_jump_timer: Timer
@@ -23,16 +23,15 @@ func enter():
 	character.velocity.y = character.jump_velocity
 	character.coyote_timer.stop()
 	min_jump_timer.start()
+	character.jump_available = false
 	
 func update(delta: float):
 	# different types of jumps
 	if character.velocity.y < 0 and not Input.is_action_pressed("jump") and min_jump_timer.time_left <= 0:
 		# released early → short jump
-		print("min jump")
 		character.velocity.y += character.gravity * character.jump_cut_multiplier
 	else:
 		# space held → long jump
-		print("normal jump")
 		character.velocity.y += character.gravity
 	
 	# horizontal movement

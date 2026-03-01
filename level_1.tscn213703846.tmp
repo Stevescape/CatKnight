@@ -38,7 +38,6 @@ character = NodePath("../Player")
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825]
 position = Vector2(-447, -104)
 collision_layer = 2
-collision_mask = 17
 script = ExtResource("1_5hph3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
@@ -68,10 +67,6 @@ script = ExtResource("7_j7kpp")
 
 [node name="falling" type="Node" parent="Player/StateMachine" unique_id=1961985170]
 script = ExtResource("9_5rr72")
-
-[node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
-target_position = Vector2(0, 20)
-collision_mask = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1153609864]
 position = Vector2(2377, -423)

@@ -8,15 +8,15 @@ var horizontal_velocity: float = 0.0
 
 func enter():
 	# keep whatever sideways momentum we had when we started falling
+	character.play_animation("fall")
 	horizontal_velocity = character.velocity.x
-	print("falling")
 
 func update(delta: float):
 	# gravity
-	character.velocity.y += character.gravity * 1.2
+	character.velocity.y += character.gravity * 0.7
 	
 	# Want to be able to jump while falling if coyote timer is available
-	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0:
+	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0 and character.jump_available:
 		state_transition.emit(self, "jumping")
 		return
 	

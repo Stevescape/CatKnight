@@ -8,7 +8,6 @@ var dash_direction: float = 0.0
 var dash_vector: Vector2 = Vector2.ZERO
 
 func enter():
-	print("dashing")
 	character.play_animation("pounce")
 	character.spawn_dust()
 	
@@ -46,8 +45,10 @@ func update(delta: float):
 		character.shake_camera()
 		return
 	
+	if Input.is_action_just_pressed("jump") and character.jump_available:
+		state_transition.emit(self, "jumping")
+		return
+	
 	if dash_timer <= 0:
 		state_transition.emit(self, "falling")
 				
-func exit():
-	character.air_dash_available = true

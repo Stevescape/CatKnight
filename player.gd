@@ -6,6 +6,7 @@ class_name Player
 @export var jump_velocity: float = -450.0
 @export var gravity: float = 18.75
 var acceleration: float = speed * 20
+var jump_available: bool = true # resets on landing
 
 # air dash
 @export var air_dash_speed: float = 375.0
@@ -26,6 +27,7 @@ var horizontal_input: float = 0.0
 
 @onready var dust = preload("res://resources/Dust.tscn")
 @onready var camera = get_tree().root.get_child(0).get_node("Camera2D")
+@onready var dropdown: RayCast2D = $DropDownDetector
 
 var sprites: Array = [
 	preload("res://sprites/helmetless.tres"),
@@ -99,6 +101,11 @@ func refresh_anim():
 		
 		if not was_playing:
 			anim_sprite.stop()
+			
+func on_dropdown_platform()-> bool:
+	if not dropdown.is_colliding():
+		return false
+	return true
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -106,8 +113,15 @@ func _physics_process(delta: float) -> void:
 			cur_sprite = 1
 		else:
 			cur_sprite = 0
+			
 	
-	
+	if Input.is_action_just_pressed("move_down") and on_dropdown_platform():
+		velocity.y += 50
+		
+	if Input.is_action_pressed("move_down"):
+		set_collision_mask_value(5, false)
+	else:
+		set_collision_mask_value(5, true)
 	if Input.is_action_just_pressed("move_right"):
 		last_direction = Direction.RIGHT
 		refresh_anim()

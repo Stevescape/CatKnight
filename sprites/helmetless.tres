@@ -2,6 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://3bmt82j4e4pd" path="res://sprites/kitty_knight_helmetless.png" id="1_nylgh"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_evn08"]
+atlas = ExtResource("1_nylgh")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyhky"]
+atlas = ExtResource("1_nylgh")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvsiy"]
+atlas = ExtResource("1_nylgh")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5jml"]
+atlas = ExtResource("1_nylgh")
+region = Rect2(32, 288, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0ofo"]
 atlas = ExtResource("1_nylgh")
 region = Rect2(0, 0, 32, 32)
@@ -92,6 +108,28 @@ region = Rect2(96, 192, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evn08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyhky")
+}],
+"loop": true,
+"name": &"fall_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvsiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5jml")
+}],
+"loop": true,
+"name": &"fall_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b0ofo")
