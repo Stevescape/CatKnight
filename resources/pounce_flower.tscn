@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ypvfv5lmehlb"]
+
+[ext_resource type="Script" uid="uid://cpnjkoiax3p" path="res://flower.gd" id="1_j0uor"]
+[ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="2_ncakj"]
+[ext_resource type="Script" uid="uid://b5rgfk5r6f7jw" path="res://scripts/state_machine/state_machine.gd" id="3_syn6a"]
+[ext_resource type="Script" uid="uid://ric1l2nmnyyd" path="res://scripts/pounce_flower/idle.gd" id="4_2x5kx"]
+[ext_resource type="Script" uid="uid://d3qay0bvtman7" path="res://scripts/pounce_flower/cooldown.gd" id="5_0rg3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27bay"]
+size = Vector2(127, 127)
+
+[sub_resource type="Animation" id="Animation_ggavl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ubhxj"]
+resource_name = "cooldown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.40392157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65or1"]
+_data = {
+&"RESET": SubResource("Animation_ggavl"),
+&"cooldown": SubResource("Animation_ubhxj")
+}
+
+[node name="PounceFlower" type="StaticBody2D" unique_id=2138849708 groups=["pounceable"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_j0uor")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306298971]
+position = Vector2(0.7999878, 1.2400055)
+scale = Vector2(0.19999999, 0.16000003)
+texture = ExtResource("2_ncakj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=273349118]
+position = Vector2(0.6999817, 1.1600037)
+scale = Vector2(0.19999999, 0.16000003)
+shape = SubResource("RectangleShape2D_27bay")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1310397221 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_syn6a")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="StateMachine" unique_id=579490135]
+script = ExtResource("4_2x5kx")
+
+[node name="cooldown" type="Node" parent="StateMachine" unique_id=1731016208]
+script = ExtResource("5_0rg3i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1002709755]
+libraries/ = SubResource("AnimationLibrary_65or1")

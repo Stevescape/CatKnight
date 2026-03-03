@@ -30,6 +30,10 @@ window/stretch/scale_mode="integer"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[global_group]
+
+pounceable=""
+
 [input]
 
 move_left={
@@ -78,6 +82,7 @@ k={
 
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
+2d_physics/layer_4="Pounce"
 2d_physics/layer_5="Drop Through Platforms"
 
 [physics]

@@ -3,12 +3,18 @@ class_name Player
 
 # movement
 @export var speed: float = 250.0
-@export var max_jump_height: float = 100
+@export var max_jump_height: float = 80
 @export var time_to_reach_peak: float = 0.4
 
 var acceleration: float = speed * 20
 var jump_available: bool = true # resets on landing
-var min_jump_duration: float = 0.2
+
+# Edit the values of these 2
+var max_jump_duration: float = 10
+var saved_min_jump_duration: float = 0.15
+
+# Don't edit this one
+var min_jump_duration: float = 0.15
 
 # air dash
 @export var air_dash_speed: float = 375.0
@@ -35,6 +41,7 @@ var gravity: float = 0
 @onready var dust = preload("res://resources/Dust.tscn")
 @onready var camera = get_tree().root.get_child(0).get_node("Camera2D")
 @onready var dropdown: RayCast2D = $DropDownDetector
+@onready var jump_label: Label = get_tree().root.get_child(0).get_node("CanvasLayer").get_node("JumpMode")
 
 var sprites: Array = [
 	preload("res://sprites/helmetless.tres"),
@@ -70,12 +77,12 @@ var cur_sprite: int = 0:
 		if not was_playing:
 			anim_sprite.stop()
 
-func _calculate_initial_velocity():
-	jump_velocity = (-2 * max_jump_height)/(time_to_reach_peak)
+func _calculate_initial_velocity(max_height, duration):
+	return (-2 * max_height)/(duration)
 
-func _calculate_gravity():
-	gravity = (2 * max_jump_height)/pow(time_to_reach_peak, 2)
-	gravity = gravity/60
+func _calculate_gravity(max_height, duration):
+	return (2 * max_height)/pow(duration, 2)
+	
 
 func spawn_dust():
 	var obj = dust.instantiate()
@@ -98,8 +105,8 @@ func _ready():
 	add_child(coyote_timer)
 	coyote_timer.wait_time = coyote_time
 	coyote_timer.one_shot = true
-	_calculate_gravity()
-	_calculate_initial_velocity()
+	gravity = _calculate_gravity(max_jump_height, time_to_reach_peak) * 1/60
+	jump_velocity = _calculate_initial_velocity(max_jump_height, time_to_reach_peak)
 	print(jump_velocity)
 	print(gravity)
 	
@@ -131,16 +138,17 @@ func _physics_process(delta: float) -> void:
 			cur_sprite = 1
 		else:
 			cur_sprite = 0
-			
 	
 	if Input.is_action_just_pressed("move_down") and on_dropdown_platform():
 		velocity.y += 50
 	
 	if Input.is_action_just_pressed("k"):
-		if min_jump_duration == 0.2:
-			min_jump_duration = 10
+		if min_jump_duration == saved_min_jump_duration:
+			min_jump_duration = max_jump_duration
+			jump_label.text = "Fixed Jump"
 		else:
-			min_jump_duration = 0.2
+			min_jump_duration = saved_min_jump_duration
+			jump_label.text = "Variable Jump"
 		
 	if Input.is_action_pressed("move_down"):
 		set_collision_mask_value(5, false)

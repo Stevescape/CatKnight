@@ -1,6 +1,6 @@
 extends Node
 class_name State
-var character: CharacterBody2D
+var character: Node2D
 
 signal state_transition
 

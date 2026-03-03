@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1houmw6webe4" path="res://sprites/dirt_terrain.png" id="1_ej02t"]
 [ext_resource type="Texture2D" uid="uid://ciwmlb375l6tl" path="res://sprites/background_dirt.png" id="2_14fb3"]
+[ext_resource type="PackedScene" uid="uid://ypvfv5lmehlb" path="res://resources/pounce_flower.tscn" id="3_14fb3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pe0h"]
 texture = ExtResource("1_ej02t")
@@ -211,6 +212,10 @@ texture_region_size = Vector2i(32, 32)
 6:2/0/terrains_peering_bit/top_left_corner = 1
 6:2/0/terrains_peering_bit/top_side = 1
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p0366"]
+resource_name = "PounceFlower"
+scenes/1/scene = ExtResource("3_14fb3")
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -226,3 +231,4 @@ custom_data_layer_0/name = "DropDown"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_1pe0h")
 sources/1 = SubResource("TileSetAtlasSource_27bay")
+sources/2 = SubResource("TileSetScenesCollectionSource_p0366")

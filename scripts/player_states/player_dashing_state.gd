@@ -10,6 +10,11 @@ var dash_vector: Vector2 = Vector2.ZERO
 func enter():
 	character.play_animation("pounce")
 	character.spawn_dust()
+	var p_jump_timer = get_tree().create_timer(0.1)
+	p_jump_timer.connect("timeout", func():
+		character.set_collision_mask_value(4, true)
+		)
+	
 	
 	var input_x = Input.get_axis("move_left", "move_right")
 	
@@ -28,6 +33,15 @@ func enter():
 	character.velocity.y = -250
 	character.velocity.x = dash_direction * character.air_dash_speed
 	
+func collide_pounceable_node() -> bool:
+	var num = character.get_slide_collision_count()
+	for i in range(num):
+		var collided = character.get_slide_collision(i).get_collider() as Node2D
+		if collided.is_in_group("pounceable"):
+			collided.collided.emit(character)
+			return true
+	
+	return false
 		
 func update(delta: float):
 	dash_timer -= delta
@@ -35,6 +49,11 @@ func update(delta: float):
 	character.velocity.y += character.gravity
 	character.move_and_slide()
 	character.global_position = character.global_position.round()
+	
+	if collide_pounceable_node():
+		character.air_dash_available = true
+		state_transition.emit(self, "falling")
+		return
 	
 	if character.is_on_floor():
 		if character.velocity.x == 0:
@@ -52,3 +71,5 @@ func update(delta: float):
 	if dash_timer <= 0:
 		state_transition.emit(self, "falling")
 				
+func exit():
+	character.set_collision_mask_value(4, false)
