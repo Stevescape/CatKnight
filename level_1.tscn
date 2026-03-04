@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b4d4tg6b0ylnx" path="res://scripts/player_states/player_jumping_state.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://ce7kgxthk47qa" path="res://scripts/player_states/player_dashing_state.gd" id="7_j7kpp"]
 [ext_resource type="Script" uid="uid://77uif1q7mvw" path="res://scripts/player_states/player_fall_state.gd" id="9_5rr72"]
+[ext_resource type="Script" uid="uid://c8j1mqihf0qyb" path="res://scripts/player_states/hurt.gd" id="10_gyffv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
 size = Vector2(16, 30)
@@ -142,6 +143,10 @@ script = ExtResource("9_5rr72")
 [node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
 target_position = Vector2(0, 20)
 collision_mask = 16
+[node name="hurting" type="Node" parent="Player/StateMachine" unique_id=1198091994]
+script = ExtResource("10_gyffv")
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=877105166]
 

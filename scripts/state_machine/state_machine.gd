@@ -4,6 +4,7 @@ class_name StateMachine
 var states: Dictionary = {}
 var current_state: State
 @export var initial_state: State
+var character
 
 func _ready():
 	for child in get_children():
@@ -15,9 +16,15 @@ func _ready():
 		if initial_state:
 			initial_state.enter()
 			current_state = initial_state
-	
+	character = get_parent()
 
 func _physics_process(delta):
+	
+	if not is_instance_valid(character):
+		return
+	# player health update
+	character.update_health(delta)
+	
 	if current_state:
 		current_state.update(delta)
 
