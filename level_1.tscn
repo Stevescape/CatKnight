@@ -140,13 +140,12 @@ script = ExtResource("7_j7kpp")
 [node name="falling" type="Node" parent="Player/StateMachine" unique_id=1961985170]
 script = ExtResource("9_5rr72")
 
-[node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
-target_position = Vector2(0, 20)
-collision_mask = 16
 [node name="hurting" type="Node" parent="Player/StateMachine" unique_id=1198091994]
 script = ExtResource("10_gyffv")
 
-[node name="Platform" type="StaticBody2D" parent="." unique_id=862286768]
+[node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
+target_position = Vector2(0, 20)
+collision_mask = 16
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=877105166]
 

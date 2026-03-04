@@ -100,6 +100,8 @@ func shake_camera():
 	if camera != null:
 		camera.shake_camera()
 
+	
+
 # health system
 @export var max_health: int = 5
 var current_health: float
@@ -109,9 +111,9 @@ var time_since_damage: float = 0.0
 @export var passive_healing: bool = false
 
 # damage knockback
-@export var knockback_duration: float = 0.3   # seconds
+@export var knockback_duration: float = 0.2   # seconds
 # hard coded, change depending on enemey type
-@export var knockback_power: Vector2 = Vector2(750, -400) 
+@export var knockback_power: Vector2 = Vector2(750, -200) 
 var knockback_timer: float = 0.0
 var knockback_velocity: Vector2 = Vector2.ZERO
 
@@ -149,6 +151,9 @@ func on_dropdown_platform()-> bool:
 	return true
 	
 func _physics_process(delta: float) -> void:
+	# player health update
+	update_health(delta)
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if cur_sprite == 0:
 			cur_sprite = 1
@@ -206,7 +211,7 @@ func update_health(delta):
 	
 	if not passive_healing:
 		return
-		
+	
 	time_since_damage += delta
 	
 	if time_since_damage >= heal_delay and current_health < max_health:

@@ -10,6 +10,11 @@ var timer: float
 
 func enter():
 	# knockback
+	character.camera.shake_camera()
+	await character.camera.hit_stop()
+	
+	
+	character.velocity = character.knockback_velocity
 	print("hurt state")
 	
 func update(delta):
@@ -17,10 +22,10 @@ func update(delta):
 		character.knockback_timer -= delta
 
 		# Apply gravity to Y velocity for arched movement
-		character.knockback_velocity.y += character.gravity
-
+		character.velocity.y += character.gravity
+		character.velocity.x = lerpf(character.velocity.x, 0, 0.5)
 		# Set current velocity
-		character.velocity = character.knockback_velocity
+		
 		character.move_and_slide()
 
 		return  # skip normal movement during knockback

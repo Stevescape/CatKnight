@@ -11,14 +11,28 @@ var camera_speed = 5
 var lookahead = 0
 var dir_multiplier: float = 0.0
 var dir_duration: float = 0.8
+var default_hit_stop: float = 0.1
 
 var screenshake_strength: float = 0.0
 
 @export var character: CharacterBody2D
 
 var rng = RandomNumberGenerator.new()
-func shake_camera():
-	screenshake_strength = max_screenshake
+func shake_camera(strength: float = -1):
+	if strength == -1:
+		screenshake_strength = max_screenshake
+	else:
+		screenshake_strength = strength
+
+func hit_stop(time: float = -1):
+	if time == -1:
+		time = default_hit_stop	
+	Engine.time_scale = 0
+	var timer = get_tree().create_timer(time, true, false, true)
+	timer.connect("timeout", func():
+		Engine.time_scale = 1)
+	return timer.timeout
+		
 
 func _process(delta: float) -> void:
 	if screenshake_strength > 0 :
