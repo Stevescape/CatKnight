@@ -6,14 +6,20 @@ class_name PlayerAirDashingState
 var dash_timer: float = 0.0
 var dash_direction: float = 0.0
 var dash_vector: Vector2 = Vector2.ZERO
+var p_jump_time = 0.1
+var p_jump_timer
+var allow_p_jump = false
 
 func enter():
 	character.play_animation("pounce")
 	character.spawn_dust()
-	var p_jump_timer = get_tree().create_timer(0.1)
+	p_jump_timer = get_tree().create_timer(p_jump_time)
+	allow_p_jump = true
 	p_jump_timer.connect("timeout", func():
-		character.set_collision_mask_value(4, true)
+		if allow_p_jump:
+			character.set_collision_mask_value(4, true)
 		)
+		
 	
 	
 	var input_x = Input.get_axis("move_left", "move_right")
@@ -61,10 +67,10 @@ func update(delta: float):
 		else:
 			state_transition.emit(self, "walking")
 		character.spawn_dust()
-		character.shake_camera()
+		character.shake_camera(character.landing_screenshake)
 		return
 	
-	if Input.is_action_just_pressed("jump") and character.jump_available:
+	if character.jump_buffer_timer.time_left > 0 and character.jump_available:
 		state_transition.emit(self, "jumping")
 		return
 	
@@ -72,4 +78,5 @@ func update(delta: float):
 		state_transition.emit(self, "falling")
 				
 func exit():
+	allow_p_jump = false
 	character.set_collision_mask_value(4, false)

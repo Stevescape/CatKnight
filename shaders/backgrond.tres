@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://reec3ak22v3q"]
+
+[ext_resource type="Shader" uid="uid://c1usauvnuql0b" path="res://shaders/palette_swap.tres" id="1_tnamc"]
+[ext_resource type="Texture2D" uid="uid://dq25aai70kejh" path="res://sprites/background/green_palette.png" id="2_pb5mc"]
+[ext_resource type="Texture2D" uid="uid://dnlpsx061e8xf" path="res://sprites/background/gray_palette.png" id="3_u54ia"]
+
+[resource]
+shader = ExtResource("1_tnamc")
+shader_parameter/original_palette = ExtResource("3_u54ia")
+shader_parameter/new_palette = ExtResource("2_pb5mc")
+shader_parameter/color_count = 45

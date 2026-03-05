@@ -16,7 +16,7 @@ func update(delta: float):
 	character.velocity.y += character.gravity
 	
 	# Want to be able to jump while falling if coyote timer is available
-	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0 and character.jump_available:
+	if character.jump_buffer_timer.time_left > 0 and character.coyote_timer.time_left > 0.0 and character.jump_available:
 		state_transition.emit(self, "jumping")
 		return
 	
@@ -36,7 +36,7 @@ func update(delta: float):
 	# landed
 	if character.is_on_floor():
 		character.spawn_dust()
-		character.shake_camera()
+		character.shake_camera(character.landing_screenshake)
 		character.air_dash_available = true
 		if input_x == 0:
 			state_transition.emit(self, "idle")

@@ -21,8 +21,12 @@ var min_jump_duration: float = 0.15
 @export var air_dash_duration: float = 1
 var air_dash_available: bool = true # resets on landing
 
+# Timers
 @export var coyote_time: float = 0.15
 var coyote_timer: Timer
+
+@export var jump_buffer_time: float = 0.1
+var jump_buffer_timer: Timer
 
 @onready var sm: Node = $StateMachine
 
@@ -39,15 +43,35 @@ var gravity: float = 0
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var dust = preload("res://resources/Dust.tscn")
-@onready var camera = get_tree().root.get_child(0).get_node("Camera2D")
+@onready var camera = get_tree().current_scene.get_node("Camera2D")
 @onready var dropdown: RayCast2D = $DropDownDetector
-@onready var jump_label: Label = get_tree().root.get_child(0).get_node("CanvasLayer").get_node("JumpMode")
+@onready var jump_label: Label = get_tree().current_scene.get_node("CanvasLayer").get_node("JumpMode")
 
+# health system
+@export var max_health: int = 5
+var current_health: float
+@export var heal_rate: float = 1
+@export var heal_delay: float = 1.0
+var time_since_damage: float = 0.0
+@export var passive_healing: bool = false
+
+# damage knockback
+@export var knockback_duration: float = 0.2   # seconds
+# hard coded, change depending on enemey type
+@export var knockback_power: Vector2 = Vector2(750, -200) 
+var knockback_timer: float = 0.0
+var knockback_velocity: Vector2 = Vector2.ZERO
+
+# Screenshake
+@export var landing_screenshake = 1
+
+# Sprites
 var sprites: Array = [
 	preload("res://sprites/helmetless.tres"),
 	preload("res://sprites/helmet.tres")
 ]
 
+# Direction for sprites
 enum Direction { LEFT= -1, RIGHT=1 }
 
 var direction_suffix = {
@@ -83,10 +107,9 @@ func _calculate_initial_velocity(max_height, duration):
 func _calculate_gravity(max_height, duration):
 	return (2 * max_height)/pow(duration, 2)
 	
-
 func spawn_dust():
 	var obj = dust.instantiate()
-	get_tree().root.add_child(obj)
+	get_tree().current_scene.add_child(obj)
 	obj.global_position = global_position
 	
 func anim_suffix():
@@ -96,33 +119,24 @@ func play_animation(name: String):
 	if anim_sprite != null:
 		anim_sprite.play(name + anim_suffix())
 
-func shake_camera():
+func shake_camera(strength: float = -1):
 	if camera != null:
-		camera.shake_camera()
-
-	
-
-# health system
-@export var max_health: int = 5
-var current_health: float
-@export var heal_rate: float = 1
-@export var heal_delay: float = 1.0
-var time_since_damage: float = 0.0
-@export var passive_healing: bool = false
-
-# damage knockback
-@export var knockback_duration: float = 0.2   # seconds
-# hard coded, change depending on enemey type
-@export var knockback_power: Vector2 = Vector2(750, -200) 
-var knockback_timer: float = 0.0
-var knockback_velocity: Vector2 = Vector2.ZERO
+		camera.shake_camera(strength)
 
 func _ready():
 	current_health = max_health
+	# Coyote Timer
 	coyote_timer = Timer.new()
 	add_child(coyote_timer)
 	coyote_timer.wait_time = coyote_time
 	coyote_timer.one_shot = true
+	
+	# Jump Buffer Timer
+	jump_buffer_timer = Timer.new()
+	add_child(jump_buffer_timer)
+	jump_buffer_timer.wait_time = jump_buffer_time
+	jump_buffer_timer.one_shot = true
+	
 	gravity = _calculate_gravity(max_jump_height, time_to_reach_peak) * 1/60
 	jump_velocity = _calculate_initial_velocity(max_jump_height, time_to_reach_peak)
 	print(jump_velocity)
@@ -154,6 +168,9 @@ func _physics_process(delta: float) -> void:
 	# player health update
 	update_health(delta)
 	
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer.start()
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if cur_sprite == 0:
 			cur_sprite = 1
@@ -175,10 +192,14 @@ func _physics_process(delta: float) -> void:
 		set_collision_mask_value(5, false)
 	else:
 		set_collision_mask_value(5, true)
-	if Input.is_action_just_pressed("move_right"):
+	
+	if Input.is_action_pressed("move_left") and Input.is_action_pressed("move_right"):
+		return
+		
+	if Input.is_action_pressed("move_right") and last_direction != Direction.RIGHT:
 		last_direction = Direction.RIGHT
 		refresh_anim()
-	elif Input.is_action_just_pressed("move_left"):
+	elif Input.is_action_pressed("move_left") and last_direction != Direction.LEFT:
 		last_direction = Direction.LEFT
 		refresh_anim()
 		
@@ -201,9 +222,8 @@ func take_damage(amount: float, attack_direction: int):
 	
 func die():
 	print("player dead")
-	if sm:
-		sm.set_process(false)  
-	queue_free() 
+	sm.force_change_state("idle")
+	respawn()
 	
 func update_health(delta):
 	if current_health <= 0:
@@ -222,6 +242,12 @@ func update_health(delta):
 		if current_health > old_health:
 			print("Healed! Current health:", current_health)
 	
+func respawn():
+	global_position = Checkpoint.checkpoint_pos
+	camera.global_position = Checkpoint.checkpoint_pos
+	
 func _input(event):
 	if event.is_action_pressed("Damage"): # 
 		take_damage(1, 1)  # attack from right
+	if event.is_action_pressed("respawn"):
+		respawn()

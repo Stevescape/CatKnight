@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bwoameougxl5q"]
+
+[ext_resource type="Texture2D" uid="uid://dkspuvtmmb8rn" path="res://sprites/litter_box.png" id="1_ujm0e"]
+[ext_resource type="Script" uid="uid://cw0w51angwtpw" path="res://litter_box.gd" id="2_vph0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qmij"]
+size = Vector2(26, 34)
+
+[node name="Litter" type="Sprite2D" unique_id=64601985]
+texture = ExtResource("1_ujm0e")
+hframes = 2
+script = ExtResource("2_vph0r")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=902179759]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1677495861]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_3qmij")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2134827236]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

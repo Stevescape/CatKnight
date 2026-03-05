@@ -32,7 +32,7 @@ func update(delta: float):
 		state_transition.emit(self, "dashing")
 		return
 	
-	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0.0 and character.jump_available:
+	if character.jump_buffer_timer.time_left > 0 and character.coyote_timer.time_left > 0.0 and character.jump_available:
 		state_transition.emit(self, "jumping")
 		return
 	

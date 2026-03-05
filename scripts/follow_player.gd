@@ -7,6 +7,7 @@ extends Camera2D
 @export var max_accel: float = 20
 @export var x_deadzone: float = 64
 @export var max_lookahead: float = 80
+@export var vertical_lookahead: float = 100
 var camera_speed = 5
 var lookahead = 0
 var dir_multiplier: float = 0.0
@@ -16,6 +17,8 @@ var default_hit_stop: float = 0.1
 var screenshake_strength: float = 0.0
 
 @export var character: CharacterBody2D
+
+var looking_down: bool = false
 
 var rng = RandomNumberGenerator.new()
 func shake_camera(strength: float = -1):
@@ -42,6 +45,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var dir = character.velocity.normalized().x
+	if dir == 0:
+		dir = Input.get_axis("camera_left", "camera_right") * 2
 	if dir != 0:
 		dir_multiplier += (delta * dir)/dir_duration
 	dir_multiplier = clamp(dir_multiplier, -1, 1)
@@ -49,7 +54,7 @@ func _physics_process(delta: float) -> void:
 
 	var target_x = character.position.x + lookahead
 	position.x = lerp(position.x, target_x, camera_speed * delta)
-	position.y = lerp(position.y, character.position.y, camera_speed * delta)
+	position.y = lerp(position.y, character.position.y + (vertical_lookahead * int(looking_down)), camera_speed * delta)
 	position = position.round()
 		
 	
