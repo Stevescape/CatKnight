@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dqgagiec84dro"]
+
+[ext_resource type="Texture2D" uid="uid://b1houmw6webe4" path="res://sprites/dirt_terrain.png" id="1_hrpga"]
+[ext_resource type="Script" uid="uid://dqmhdq3oemudm" path="res://scripts/moving_platform.gd" id="2_f8lbu"]
+
+[sub_resource type="Curve2D" id="Curve2D_3qmij"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -77, -66, 0, 0, 0, 0, 143, -66)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb5eu"]
+atlas = ExtResource("1_hrpga")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lfy8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb5eu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb5eu"]
+size = Vector2(94, 32)
+
+[node name="Path2D" type="Path2D" unique_id=1382004099]
+curve = SubResource("Curve2D_3qmij")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=192887944]
+position = Vector2(-77, -66)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D" unique_id=1666062144]
+sprite_frames = SubResource("SpriteFrames_lfy8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1242642630]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_kb5eu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1769971137]
+position = Vector2(-77, -66)
+rotates = false
+loop = false
+script = ExtResource("2_f8lbu")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=701502053]
+remote_path = NodePath("../../AnimatableBody2D")

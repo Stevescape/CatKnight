@@ -3,7 +3,7 @@ extends StaticBody2D
 signal collided
 
 @export var jump_height = 125
-@export var cooldown: int = 3
+@export var cooldown: int = 1
 @onready var sm: StateMachine = $StateMachine
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 

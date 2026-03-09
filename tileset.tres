@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ciwmlb375l6tl" path="res://sprites/background_dirt.png" id="2_14fb3"]
 [ext_resource type="PackedScene" uid="uid://ypvfv5lmehlb" path="res://resources/pounce_flower.tscn" id="3_14fb3"]
 [ext_resource type="PackedScene" uid="uid://bwoameougxl5q" path="res://resources/litter.tscn" id="4_p0366"]
+[ext_resource type="PackedScene" uid="uid://dqgagiec84dro" path="res://resources/moving_platform.tscn" id="5_hobn4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pe0h"]
 texture = ExtResource("1_ej02t")
@@ -189,7 +190,7 @@ texture_region_size = Vector2i(32, 32)
 2:6/0 = 0
 2:6/0/terrain_set = 0
 2:6/0/terrain = 2
-2:6/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, 1.7777786, -5.333333, 1.7777786, -5.333333, 5.333334, 16, 5.333334)
+2:6/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, -1.7777777, -5.333334, -1.7777777, -5.333334, 1.7777786, 16, 1.7777786)
 2:6/0/physics_layer_1/polygon_0/one_way = true
 2:6/0/terrains_peering_bit/right_side = 2
 4:6/0 = 0
@@ -217,6 +218,13 @@ texture_region_size = Vector2i(32, 32)
 3:7/0/terrains_peering_bit/right_side = 2
 3:7/0/terrains_peering_bit/bottom_side = 2
 3:7/0/terrains_peering_bit/top_side = 2
+4:7/0 = 0
+4:7/0/terrain_set = 0
+4:7/0/terrain = 2
+4:7/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, -1.7777777, -16, -1.7777777, -16, 1.7777786, 16, 1.7777786)
+4:7/0/physics_layer_1/polygon_0/one_way = true
+4:7/0/terrains_peering_bit/right_side = 2
+4:7/0/terrains_peering_bit/left_side = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27bay"]
 texture = ExtResource("2_14fb3")
@@ -328,6 +336,7 @@ texture_region_size = Vector2i(32, 32)
 resource_name = "Scenes"
 scenes/1/scene = ExtResource("3_14fb3")
 scenes/2/scene = ExtResource("4_p0366")
+scenes/3/scene = ExtResource("5_hobn4")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -6,7 +6,7 @@ class_name PlayerAirDashingState
 var dash_timer: float = 0.0
 var dash_direction: float = 0.0
 var dash_vector: Vector2 = Vector2.ZERO
-var p_jump_time = 0.1
+var p_jump_time = 0.05
 var p_jump_timer
 var allow_p_jump = false
 
