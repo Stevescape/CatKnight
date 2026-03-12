@@ -8,6 +8,7 @@ class_name Player
 
 var acceleration: float = speed * 20
 var jump_available: bool = true # resets on landing
+var wall_jump_available: bool = true
 
 # Edit the values of these 2
 var max_jump_duration: float = 10
@@ -21,8 +22,14 @@ var min_jump_duration: float = 0.15
 @export var air_dash_duration: float = 1
 var air_dash_available: bool = true # resets on landing
 
+# wall slide and jump
+@export var wall_slide_speed = 100.0
+@export var wall_jump_push = 250.0
+@export var wall_jump_force = -350.0
+var last_wall_normal: Vector2 = Vector2.ZERO
+
 # Timers
-@export var coyote_time: float = 0.15
+@export var coyote_time: float = 0.25
 var coyote_timer: Timer
 
 @export var jump_buffer_time: float = 0.1

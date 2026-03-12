@@ -15,6 +15,13 @@ func update(delta: float):
 	# gravity
 	character.velocity.y += character.gravity
 	
+	if Input.is_action_just_pressed("jump") and character.coyote_timer.time_left > 0 and character.last_wall_normal != Vector2.ZERO and character.wall_jump_available:
+		character.velocity.y = character.wall_jump_force
+		character.velocity.x = character.last_wall_normal.x * character.wall_jump_push
+		character.wall_jump_available = false
+		state_transition.emit(self, "jumping")
+		return
+	
 	# Want to be able to jump while falling if coyote timer is available
 	if character.jump_buffer_timer.time_left > 0 and character.coyote_timer.time_left > 0.0 and character.jump_available:
 		state_transition.emit(self, "jumping")
@@ -32,12 +39,18 @@ func update(delta: float):
 	if Input.is_action_just_pressed("pounce") and character.air_dash_available:
 		state_transition.emit(self, "dashing")
 		return
+	
+	# wall sliding
+	if character.is_on_wall() and not character.is_on_floor() and character.velocity.y > 0:
+		state_transition.emit(self, "wall sliding")
+		return
 
 	# landed
 	if character.is_on_floor():
 		character.spawn_dust()
 		character.shake_camera(character.landing_screenshake)
 		character.air_dash_available = true
+		character.wall_jump_available = true
 		if input_x == 0:
 			state_transition.emit(self, "idle")
 		else:

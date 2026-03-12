@@ -56,6 +56,19 @@ func update(delta: float):
 	character.move_and_slide()
 	character.global_position = character.global_position.round()
 	
+	if character.is_on_wall() and not character.is_on_floor():
+		var collision = character.get_last_slide_collision()
+		
+		if collision and not collision.get_collider().is_in_group("pounceable"):
+			character.last_wall_normal = character.get_wall_normal()
+		
+			if character.velocity.y < 0:
+				character.velocity.y = 0
+			state_transition.emit(self, "wall sliding")
+			return
+		
+		
+	
 	if collide_pounceable_node():
 		character.air_dash_available = true
 		state_transition.emit(self, "falling")
