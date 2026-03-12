@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://77uif1q7mvw" path="res://scripts/player_states/player_fall_state.gd" id="9_5rr72"]
 [ext_resource type="Script" uid="uid://c8j1mqihf0qyb" path="res://scripts/player_states/hurt.gd" id="10_gyffv"]
 [ext_resource type="Script" uid="uid://bjsat4yenoydl" path="res://scripts/player_states/player_wall_sliding_state.gd" id="19_00ld1"]
+[ext_resource type="Script" uid="uid://byoefrmcww2w6" path="res://scripts/player_states/player_wall_jumping_state.gd" id="20_3qmij"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sof0w"]
 texture = ExtResource("1_27bay")
@@ -197,6 +198,9 @@ script = ExtResource("10_gyffv")
 
 [node name="wall sliding" type="Node" parent="Player/StateMachine" unique_id=553120478]
 script = ExtResource("19_00ld1")
+
+[node name="wall jumping" type="Node" parent="Player/StateMachine" unique_id=287108218]
+script = ExtResource("20_3qmij")
 
 [node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
 target_position = Vector2(0, 20)

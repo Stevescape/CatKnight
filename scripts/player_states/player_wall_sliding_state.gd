@@ -4,10 +4,6 @@ class_name PlayerWallSlidingState
 @export var sprite: AnimatedSprite2D
 @export var state_name: String = "wall sliding"
 
-#func enter():
-	#character.play_animation("slide")
-	#character.spawn_dust()
-
 func update(delta: float):
 	var input_x = Input.get_axis("move_left", "move_right")
 
@@ -40,10 +36,7 @@ func update(delta: float):
 		if character.last_wall_normal.x < 0 and input_x > 0:
 			return
 		
-		character.velocity.y = character.wall_jump_force
-		character.velocity.x = character.last_wall_normal.x * character.wall_jump_push
-		character.wall_jump_available = false
-		state_transition.emit(self, "jumping")
+		state_transition.emit(self, "wall jumping")
 		return
 
 	character.move_and_slide()
