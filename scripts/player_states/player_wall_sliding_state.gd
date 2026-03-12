@@ -4,8 +4,22 @@ class_name PlayerWallSlidingState
 @export var sprite: AnimatedSprite2D
 @export var state_name: String = "wall sliding"
 
+func enter():
+	#character.play_animation("slide")
+	#character.spawn_dust()
+	character.current_wall_slide_speed = character.wall_slide_start_speed
+	
+
 func update(delta: float):
 	var input_x = Input.get_axis("move_left", "move_right")
+	
+	character.current_wall_slide_speed = min(
+		character.current_wall_slide_speed + character.wall_slide_acceleration * delta,
+		character.wall_slide_speed
+	)
+
+	character.velocity.y += character.gravity
+	character.velocity.y = min(character.velocity.y, character.current_wall_slide_speed)
 
 	if character.is_on_floor():
 		state_transition.emit(self, "idle")

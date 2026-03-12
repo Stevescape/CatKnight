@@ -22,8 +22,13 @@ var min_jump_duration: float = 0.15
 @export var air_dash_duration: float = 1
 var air_dash_available: bool = true # resets on landing
 
-# wall slide and jump
-@export var wall_slide_speed = 100.0
+# wall slide 
+@export var wall_slide_start_speed = 15.0
+@export var wall_slide_speed = 200.0
+@export var wall_slide_acceleration = 180.0
+var current_wall_slide_speed = 0.0
+
+# wall jump
 @export var wall_jump_push = 250.0
 @export var wall_jump_force = -350.0
 var last_wall_normal: Vector2 = Vector2.ZERO
