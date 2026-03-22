@@ -20,6 +20,11 @@
 [ext_resource type="Script" uid="uid://c8j1mqihf0qyb" path="res://scripts/player_states/hurt.gd" id="10_gyffv"]
 [ext_resource type="Script" uid="uid://bjsat4yenoydl" path="res://scripts/player_states/player_wall_sliding_state.gd" id="19_00ld1"]
 [ext_resource type="Script" uid="uid://byoefrmcww2w6" path="res://scripts/player_states/player_wall_jumping_state.gd" id="20_3qmij"]
+[ext_resource type="Script" uid="uid://dgclpvjeeb470" path="res://resources/enemy.gd" id="21_duihb"]
+[ext_resource type="Script" uid="uid://dc5xp116s6sco" path="res://scripts/enemy_states/enemy_patrol_state.gd" id="22_b6mmh"]
+[ext_resource type="Script" uid="uid://bqlrwqx4mhh5h" path="res://scripts/enemy_states/enemy_chase_state.gd" id="23_ttn6t"]
+[ext_resource type="Script" uid="uid://b1mtmfrm4munw" path="res://scripts/enemy_states/enemy_attack_state.gd" id="24_ia5ws"]
+[ext_resource type="Script" uid="uid://ck6fjc25g35oi" path="res://scripts/enemy_states/enemy_damaged_state.gd" id="25_be5co"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sof0w"]
 texture = ExtResource("1_27bay")
@@ -214,3 +219,31 @@ offset_bottom = 23.0
 text = "Variable Jump"
 label_settings = SubResource("LabelSettings_gyffv")
 horizontal_alignment = 1
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=757269531]
+script = ExtResource("21_duihb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1692438808]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1319382689]
+
+[node name="StateMachine" type="Node" parent="Enemy" unique_id=1587354518]
+script = ExtResource("2_hbghi")
+
+[node name="patrolling" type="Node" parent="Enemy/StateMachine" unique_id=1996253106]
+script = ExtResource("22_b6mmh")
+
+[node name="chasing" type="Node" parent="Enemy/StateMachine" unique_id=807934875]
+script = ExtResource("23_ttn6t")
+
+[node name="attacking" type="Node" parent="Enemy/StateMachine" unique_id=45855201]
+script = ExtResource("24_ia5ws")
+
+[node name="hurt" type="Node" parent="Enemy/StateMachine" unique_id=1235718715]
+script = ExtResource("25_be5co")
+
+[node name="Waypoints" type="Node" parent="Enemy" unique_id=690228961]
+
+[node name="Point1" type="Marker2D" parent="Enemy/Waypoints" unique_id=1220492829]
+
+[node name="Point2" type="Marker2D" parent="Enemy/Waypoints" unique_id=639350366]

@@ -25,7 +25,7 @@ var air_dash_available: bool = true # resets on landing
 # wall slide 
 @export var wall_slide_start_speed = 15.0
 @export var wall_slide_speed = 200.0
-@export var wall_slide_acceleration = 180.0
+@export var wall_slide_acceleration = 100.0
 var current_wall_slide_speed = 0.0
 
 # wall jump
