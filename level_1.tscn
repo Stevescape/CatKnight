@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://byoefrmcww2w6" path="res://scripts/player_states/player_wall_jumping_state.gd" id="20_3qmij"]
 [ext_resource type="Script" uid="uid://dgclpvjeeb470" path="res://resources/enemy.gd" id="21_duihb"]
 [ext_resource type="Script" uid="uid://dc5xp116s6sco" path="res://scripts/enemy_states/enemy_patrol_state.gd" id="22_b6mmh"]
+[ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="22_ttn6t"]
 [ext_resource type="Script" uid="uid://bqlrwqx4mhh5h" path="res://scripts/enemy_states/enemy_chase_state.gd" id="23_ttn6t"]
 [ext_resource type="Script" uid="uid://b1mtmfrm4munw" path="res://scripts/enemy_states/enemy_attack_state.gd" id="24_ia5ws"]
 [ext_resource type="Script" uid="uid://ck6fjc25g35oi" path="res://scripts/enemy_states/enemy_damaged_state.gd" id="25_be5co"]
@@ -67,6 +68,20 @@ size = Vector2(16, 30)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyffv"]
 font_size = 8
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ia5ws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_ttn6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be5co"]
+size = Vector2(24, 30)
 
 [node name="game" type="Node2D" unique_id=1560109685]
 
@@ -221,11 +236,15 @@ label_settings = SubResource("LabelSettings_gyffv")
 horizontal_alignment = 1
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=757269531]
+position = Vector2(5507, 197)
 script = ExtResource("21_duihb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1692438808]
+scale = Vector2(0.19996095, 0.23999941)
+sprite_frames = SubResource("SpriteFrames_ia5ws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1319382689]
+shape = SubResource("RectangleShape2D_be5co")
 
 [node name="StateMachine" type="Node" parent="Enemy" unique_id=1587354518]
 script = ExtResource("2_hbghi")
