@@ -1,7 +1,7 @@
 extends State
 class_name EnemyAttackState
 
-@export var state_name: String = "attack"
+@export var state_name: String = "attacking"
 @export var attack_duration: float = 0.35
 
 var timer: float = 0.0
@@ -11,15 +11,16 @@ func enter():
 	timer = attack_duration
 	has_attacked = false
 	character.velocity.x = 0
-	character.play_animation("attack")
+	#character.play_animation("attack")
+	print("Enemy is attacking")
 
 func update(delta: float):
 	if character.player == null:
-		state_transition.emit(self, "patrol")
+		state_transition.emit(self, "patrolling")
 		return
 
 	if not character.in_attack_range():
-		state_transition.emit(self, "chase")
+		state_transition.emit(self, "chasing")
 		return
 
 	var dir = sign(character.player.global_position.x - character.global_position.x)
@@ -37,6 +38,6 @@ func update(delta: float):
 
 	if timer <= 0:
 		if character.in_attack_range():
-			state_transition.emit(self, "attack")
+			state_transition.emit(self, "attacking")
 		else:
-			state_transition.emit(self, "chase")
+			state_transition.emit(self, "chasing")

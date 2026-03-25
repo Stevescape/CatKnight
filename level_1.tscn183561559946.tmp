@@ -238,10 +238,8 @@ horizontal_alignment = 1
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=757269531 node_paths=PackedStringArray("patrol_points")]
 position = Vector2(10, -75)
 script = ExtResource("21_duihb")
-patrol_speed = 10.0
-chase_speed = 15.0
 detection_range = 50.0
-attack_range = 25.0
+attack_range = 10.0
 patrol_points = [NodePath("Waypoints/Point1"), NodePath("Waypoints/Point2")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1692438808]

@@ -75,31 +75,31 @@ func anim_suffix():
 	return direction_suffix[last_direction]
 
 
-func play_animation(name: String):
-	if anim_sprite != null:
-		anim_sprite.play(name + anim_suffix())
+#func play_animation(name: String):
+	#if anim_sprite != null:
+		#anim_sprite.play(name + anim_suffix())
 
 
-func refresh_anim():
-	if anim_sprite != null:
-		var anim = anim_sprite.animation.trim_suffix("_left").trim_suffix("_right")
-		var frame = anim_sprite.frame
-		var was_playing = anim_sprite.is_playing()
+#func refresh_anim():
+	#if anim_sprite != null:
+		#var anim = anim_sprite.animation.trim_suffix("_left").trim_suffix("_right")
+		#var frame = anim_sprite.frame
+		#var was_playing = anim_sprite.is_playing()
+#
+		#play_animation(anim)
+		#anim_sprite.frame = frame
 
-		play_animation(anim)
-		anim_sprite.frame = frame
-
-		if not was_playing:
-			anim_sprite.stop()
+		#if not was_playing:
+			#anim_sprite.stop()
 
 
 func face_direction(dir: float):
 	if dir > 0 and last_direction != Direction.RIGHT:
 		last_direction = Direction.RIGHT
-		refresh_anim()
+		#refresh_anim()
 	elif dir < 0 and last_direction != Direction.LEFT:
 		last_direction = Direction.LEFT
-		refresh_anim()
+		#refresh_anim()
 
 
 func can_see_player() -> bool:

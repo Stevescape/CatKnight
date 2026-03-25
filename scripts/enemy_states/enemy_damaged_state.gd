@@ -4,7 +4,8 @@ class_name EnemyDamagedState
 @export var state_name: String = "damaged"
 
 func enter():
-	character.play_animation("hurt")
+	#character.play_animation("hurt")
+	print("Enemy is hurt")
 
 func update(delta: float):
 	character.knockback_timer -= delta
