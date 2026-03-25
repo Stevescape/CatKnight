@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dgclpvjeeb470" path="res://resources/enemy.gd" id="21_duihb"]
 [ext_resource type="Script" uid="uid://dc5xp116s6sco" path="res://scripts/enemy_states/enemy_patrol_state.gd" id="22_b6mmh"]
 [ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="22_ttn6t"]
+[ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="22_ttn6t"]
 [ext_resource type="Script" uid="uid://bqlrwqx4mhh5h" path="res://scripts/enemy_states/enemy_chase_state.gd" id="23_ttn6t"]
 [ext_resource type="Script" uid="uid://b1mtmfrm4munw" path="res://scripts/enemy_states/enemy_attack_state.gd" id="24_ia5ws"]
 [ext_resource type="Script" uid="uid://ck6fjc25g35oi" path="res://scripts/enemy_states/enemy_damaged_state.gd" id="25_be5co"]
