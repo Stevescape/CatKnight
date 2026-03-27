@@ -9,6 +9,7 @@ var cur_look: float = 0
 
 func enter():
 	character.play_animation("idle")
+	character.move_and_slide()
 
 func update(delta: float):
 	character.velocity.y += character.gravity

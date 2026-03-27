@@ -176,9 +176,18 @@ func on_dropdown_platform()-> bool:
 		return false
 	return true
 	
+func check_collision_respawn():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("respawn_on_collide"):
+			die()
+			return true
+	return false
+	
 func _physics_process(delta: float) -> void:
 	# player health update
 	update_health(delta)
+	
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
@@ -215,6 +224,9 @@ func _physics_process(delta: float) -> void:
 		last_direction = Direction.LEFT
 		refresh_anim()
 		
+		
+	if check_collision_respawn():
+		return
 	
 func take_damage(amount: float, attack_direction: int):
 	current_health -= amount
@@ -233,9 +245,8 @@ func take_damage(amount: float, attack_direction: int):
 	sm.force_change_state("hurting")
 	
 func die():
-	print("player dead")
-	sm.force_change_state("idle")
-	respawn()
+	if sm.current_state.name != "death":
+		sm.force_change_state("death")
 	
 func update_health(delta):
 	if current_health <= 0:
@@ -254,12 +265,10 @@ func update_health(delta):
 		if current_health > old_health:
 			print("Healed! Current health:", current_health)
 	
-func respawn():
-	global_position = Checkpoint.checkpoint_pos
-	camera.global_position = Checkpoint.checkpoint_pos
 	
 func _input(event):
 	if event.is_action_pressed("Damage"): # 
 		take_damage(1, 1)  # attack from right
 	if event.is_action_pressed("respawn"):
-		respawn()
+		die()
+		return

@@ -21,8 +21,8 @@
 [ext_resource type="Script" uid="uid://bjsat4yenoydl" path="res://scripts/player_states/player_wall_sliding_state.gd" id="19_00ld1"]
 [ext_resource type="Script" uid="uid://byoefrmcww2w6" path="res://scripts/player_states/player_wall_jumping_state.gd" id="20_3qmij"]
 [ext_resource type="Script" uid="uid://dgclpvjeeb470" path="res://resources/enemy.gd" id="21_duihb"]
+[ext_resource type="Script" uid="uid://fmtotcg5pjgb" path="res://death.gd" id="21_ttn6t"]
 [ext_resource type="Script" uid="uid://dc5xp116s6sco" path="res://scripts/enemy_states/enemy_patrol_state.gd" id="22_b6mmh"]
-[ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="22_ttn6t"]
 [ext_resource type="Texture2D" uid="uid://dgln0x1uqju4h" path="res://icon.svg" id="22_ttn6t"]
 [ext_resource type="Script" uid="uid://bqlrwqx4mhh5h" path="res://scripts/enemy_states/enemy_chase_state.gd" id="23_ttn6t"]
 [ext_resource type="Script" uid="uid://b1mtmfrm4munw" path="res://scripts/enemy_states/enemy_attack_state.gd" id="24_ia5ws"]
@@ -69,6 +69,42 @@ size = Vector2(16, 30)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gyffv"]
 font_size = 8
+
+[sub_resource type="Animation" id="Animation_ttn6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ia5ws"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_be5co"]
+_data = {
+&"RESET": SubResource("Animation_ttn6t"),
+&"fade": SubResource("Animation_ia5ws")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ia5ws"]
 animations = [{
@@ -157,7 +193,7 @@ tile_map_data = PackedByteArray("AADw////AAAGAAEAAADw//7/AAAGAAAAAADv////AAAGAAE
 tile_set = ExtResource("1_gyffv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
-position = Vector2(3556, 66)
+position = Vector2(683, -533)
 process_callback = 0
 limit_bottom = 180
 limit_smoothed = true
@@ -181,7 +217,7 @@ YIPPEEE
 CONGRATS"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825 groups=["player"]]
-position = Vector2(-345, -53)
+position = Vector2(734, -532)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_5hph3")
@@ -223,6 +259,9 @@ script = ExtResource("19_00ld1")
 [node name="wall jumping" type="Node" parent="Player/StateMachine" unique_id=287108218]
 script = ExtResource("20_3qmij")
 
+[node name="death" type="Node" parent="Player/StateMachine" unique_id=428956127]
+script = ExtResource("21_ttn6t")
+
 [node name="DropDownDetector" type="RayCast2D" parent="Player" unique_id=1197400973]
 target_position = Vector2(0, 20)
 collision_mask = 16
@@ -235,6 +274,15 @@ offset_bottom = 23.0
 text = "Variable Jump"
 label_settings = SubResource("LabelSettings_gyffv")
 horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1590646707]
+modulate = Color(1, 1, 1, 0)
+offset_right = 647.0
+offset_bottom = 369.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1799739374]
+libraries/ = SubResource("AnimationLibrary_be5co")
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=757269531 node_paths=PackedStringArray("patrol_points")]
 position = Vector2(10, -75)
