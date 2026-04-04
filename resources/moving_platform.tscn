@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqgagiec84dro"]
 
 [ext_resource type="Texture2D" uid="uid://b1houmw6webe4" path="res://sprites/dirt_terrain.png" id="1_hrpga"]
-[ext_resource type="Script" uid="uid://dqmhdq3oemudm" path="res://scripts/moving_platform.gd" id="2_f8lbu"]
+[ext_resource type="Script" uid="uid://dqmhdq3oemudm" path="res://scripts/obstacles/moving_platform.gd" id="2_f8lbu"]
 
 [sub_resource type="Curve2D" id="Curve2D_3qmij"]
 _data = {

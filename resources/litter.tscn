@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwoameougxl5q"]
 
 [ext_resource type="Texture2D" uid="uid://dkspuvtmmb8rn" path="res://sprites/litter_box.png" id="1_ujm0e"]
-[ext_resource type="Script" uid="uid://cw0w51angwtpw" path="res://litter_box.gd" id="2_vph0r"]
+[ext_resource type="Script" uid="uid://cw0w51angwtpw" path="res://scripts/checkpoints/litter_box.gd" id="2_vph0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qmij"]
 size = Vector2(26, 34)

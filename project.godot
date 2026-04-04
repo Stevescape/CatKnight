@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Cat Knight"
-run/main_scene="uid://c3p6cjtjo53nb"
+run/main_scene="uid://dgf2iad38gg8d"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Checkpoint="*uid://cf1eluf81fie8"
+SceneTransition="*uid://clhiu7hwj1ov5"
 
 [display]
 
