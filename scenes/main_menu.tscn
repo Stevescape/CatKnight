@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://gug0gcuxps2n" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bufviurqnvou8" path="res://sprites/IMG_0789.png" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://47kjicq1xbp6" path="res://scripts/volume_slider/master.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://dpf18u0j2vch3" path="res://scripts/volume_slider/music.gd" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://dowcirkqwi4nv" path="res://scripts/volume_slider/sfx.gd" id="5_8ln24"]
 
 [node name="MainMenu" type="Control" unique_id=704778833]
 layout_mode = 3
@@ -77,6 +80,7 @@ value = 100.0
 rounded = true
 ticks_on_borders = true
 ticks_position = 3
+script = ExtResource("3_bqqt6")
 
 [node name="Label2" type="Label" parent="options_menu" unique_id=633844336]
 layout_mode = 2
@@ -88,6 +92,7 @@ value = 100.0
 rounded = true
 ticks_on_borders = true
 ticks_position = 3
+script = ExtResource("4_wu84c")
 
 [node name="Label3" type="Label" parent="options_menu" unique_id=502917363]
 layout_mode = 2
@@ -99,6 +104,7 @@ value = 100.0
 rounded = true
 ticks_on_borders = true
 ticks_position = 3
+script = ExtResource("5_8ln24")
 
 [node name="back" type="Button" parent="options_menu" unique_id=728875847]
 layout_mode = 2

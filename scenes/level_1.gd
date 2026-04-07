@@ -1,8 +1,12 @@
 extends Node2D
 
+@onready var player = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.change_clip(AudioPlayer.SONGS.FOREST)
+	player.global_position = Checkpoint.checkpoint_pos
+	$Camera2D.global_position = Checkpoint.checkpoint_pos
 
 func resume_game():
 	get_tree().paused = false
@@ -14,25 +18,25 @@ func pause_game():
 	$PauseMenu.show()
 	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 
-
-
-
-
 func _on_helmet_pressed() -> void:
 	$Player.swap_sprite()
 	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
-
 
 func _on_resume_pressed() -> void:
 	resume_game()
 	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 
-
 func _on_volume_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value/$PauseMenu/ColorRect/VBoxContainer/master.max_value))
+	AudioPlayer.master_volume = value
 
 func _on_music_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value/$PauseMenu/ColorRect/VBoxContainer/master.max_value))
+	AudioPlayer.music_volume = value
 
 func _on_sfx_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value/$PauseMenu/ColorRect/VBoxContainer/master.max_value))
+	AudioPlayer.master_volume = value
+
+func _on_menu_pressed() -> void:
+	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
+	$PauseMenu.hide()
+	SceneTransition.change_scene("res://scenes/main_menu.tscn")
+	
