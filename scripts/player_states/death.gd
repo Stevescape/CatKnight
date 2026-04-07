@@ -6,6 +6,7 @@ var debounce = false
 
 func enter():
 	debounce = false
+	AudioPlayer.play_sfx(AudioPlayer.SFX.DEATH)
 		
 func update(delta):
 	# Await animation finished
@@ -20,7 +21,7 @@ func update(delta):
 	debounce = true
 	
 	# Fade black in
-	fade_anim_player.play_backwards("fade")
+	fade_anim_player.play("fade")
 	await fade_anim_player.animation_finished
 	
 	# Move character
@@ -35,7 +36,7 @@ func update(delta):
 	
 	
 func exit():
-	fade_anim_player.play("fade")
+	fade_anim_player.play_backwards("fade")
 	
 	
 	

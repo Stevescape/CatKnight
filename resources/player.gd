@@ -36,6 +36,8 @@ var last_wall_normal: Vector2 = Vector2.ZERO
 # Timers
 @export var coyote_time: float = 0.25
 var coyote_timer: Timer
+@export var wall_slide_time: float = 0.2
+var wall_slide_timer: Timer
 
 @export var jump_buffer_time: float = 0.1
 var jump_buffer_timer: Timer
@@ -149,6 +151,12 @@ func _ready():
 	jump_buffer_timer.wait_time = jump_buffer_time
 	jump_buffer_timer.one_shot = true
 	
+	# Wall Slide Timer
+	wall_slide_timer = Timer.new()
+	add_child(wall_slide_timer)
+	wall_slide_timer.wait_time = wall_slide_time
+	wall_slide_timer.one_shot = true
+	
 	gravity = _calculate_gravity(max_jump_height, time_to_reach_peak) * 1/60
 	jump_velocity = _calculate_initial_velocity(max_jump_height, time_to_reach_peak)
 	print(jump_velocity)
@@ -190,6 +198,14 @@ func swap_sprite():
 	else:
 		cur_sprite = 0
 	
+func is_moving_towards_wall():
+	var input_x = Input.get_axis("move_left", "move_right")
+	return (input_x > 0 and get_wall_normal().x < 0) or (input_x < 0 and get_wall_normal().x > 0)
+	
+func update_facing_dir(dir: Direction):
+	last_direction = dir
+	refresh_anim()
+	
 func _physics_process(delta: float) -> void:
 	# player health update
 	update_health(delta)
@@ -218,11 +234,9 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if Input.is_action_pressed("move_right") and last_direction != Direction.RIGHT:
-		last_direction = Direction.RIGHT
-		refresh_anim()
+		update_facing_dir(Direction.RIGHT)
 	elif Input.is_action_pressed("move_left") and last_direction != Direction.LEFT:
-		last_direction = Direction.LEFT
-		refresh_anim()
+		update_facing_dir(Direction.LEFT)
 		
 		
 	if check_collision_respawn():

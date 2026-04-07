@@ -41,7 +41,7 @@ func update(delta: float):
 		return
 	
 	# wall sliding
-	if character.is_on_wall() and not character.is_on_floor() and character.velocity.y > 0:
+	if character.is_on_wall() and character.is_moving_towards_wall() and not character.is_on_floor() and character.velocity.y > 0:
 		state_transition.emit(self, "wall sliding")
 		return
 
@@ -49,6 +49,7 @@ func update(delta: float):
 	if character.is_on_floor():
 		character.spawn_dust()
 		character.shake_camera(character.landing_screenshake)
+		AudioPlayer.play_sfx(AudioPlayer.SFX.LAND)
 		character.air_dash_available = true
 		character.wall_jump_available = true
 		if input_x == 0:

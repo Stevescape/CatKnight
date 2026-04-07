@@ -12,6 +12,7 @@ var allow_p_jump = false
 
 func enter():
 	character.play_animation("pounce")
+	AudioPlayer.play_sfx(AudioPlayer.SFX.DASH)
 	character.spawn_dust()
 	p_jump_timer = get_tree().create_timer(p_jump_time)
 	allow_p_jump = true
@@ -34,6 +35,9 @@ func enter():
 	else:
 		dash_direction = character.last_direction
 		
+	if character.is_on_wall() and character.last_wall_normal != Vector2.ZERO:
+		dash_direction = 1 if character.last_wall_normal.x > 0 else -1
+	
 	character.air_dash_available = false
 	dash_timer = character.air_dash_duration
 	character.velocity.y = -250

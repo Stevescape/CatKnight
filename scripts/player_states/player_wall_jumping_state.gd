@@ -14,6 +14,7 @@ func _ready():
 	min_jump_timer.one_shot = true
 
 func enter():
+	AudioPlayer.play_sfx(AudioPlayer.SFX.JUMP)
 	min_jump_timer.wait_time = character.min_jump_duration
 	character.play_animation("jump")
 	character.spawn_dust()

@@ -19,6 +19,7 @@ func _ready():
 func enter():
 	min_jump_timer.wait_time = character.min_jump_duration
 	character.play_animation("jump")
+	AudioPlayer.play_sfx(AudioPlayer.SFX.JUMP)
 	character.spawn_dust()
 	horizontal_velocity = character.velocity.x * 0.4
 	character.velocity.y = character.jump_velocity

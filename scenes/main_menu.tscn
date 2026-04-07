@@ -69,9 +69,31 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="options_menu" unique_id=548067732]
 layout_mode = 2
-text = "Volume"
+text = "Master"
 
-[node name="volume" type="HSlider" parent="options_menu" unique_id=758782506]
+[node name="master" type="HSlider" parent="options_menu" unique_id=758782506]
+layout_mode = 2
+value = 100.0
+rounded = true
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="Label2" type="Label" parent="options_menu" unique_id=633844336]
+layout_mode = 2
+text = "Music"
+
+[node name="music" type="HSlider" parent="options_menu" unique_id=1340469938]
+layout_mode = 2
+value = 100.0
+rounded = true
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="Label3" type="Label" parent="options_menu" unique_id=502917363]
+layout_mode = 2
+text = "SFX"
+
+[node name="sfx" type="HSlider" parent="options_menu" unique_id=586450870]
 layout_mode = 2
 value = 100.0
 rounded = true
@@ -85,5 +107,7 @@ text = "Back"
 [connection signal="pressed" from="main_buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="main_buttons/option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="main_buttons/quit" to="." method="_on_quit_pressed"]
-[connection signal="value_changed" from="options_menu/volume" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="options_menu/master" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="options_menu/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="options_menu/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="pressed" from="options_menu/back" to="." method="_on_back_pressed"]

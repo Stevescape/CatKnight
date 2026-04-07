@@ -14,4 +14,5 @@ func _ready():
 	collided.connect(func(obj):
 		sm.force_change_state("cooldown")
 		obj.velocity.y = calc_velocity(jump_height, obj.gravity * 60)
+		AudioPlayer.play_sfx(AudioPlayer.SFX.SPRING)
 	)
