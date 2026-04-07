@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Checkpoint="*uid://cf1eluf81fie8"
 SceneTransition="*uid://clhiu7hwj1ov5"
+AudioPlayer="*uid://b37ticwwchlfx"
 
 [display]
 

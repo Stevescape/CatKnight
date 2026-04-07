@@ -184,6 +184,12 @@ func check_collision_respawn():
 			return true
 	return false
 	
+func swap_sprite():
+	if cur_sprite == 0:
+		cur_sprite = 1
+	else:
+		cur_sprite = 0
+	
 func _physics_process(delta: float) -> void:
 	# player health update
 	update_health(delta)
@@ -191,12 +197,6 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()
-	
-	if Input.is_action_just_pressed("ui_cancel"):
-		if cur_sprite == 0:
-			cur_sprite = 1
-		else:
-			cur_sprite = 0
 	
 	if Input.is_action_just_pressed("move_down") and on_dropdown_platform():
 		velocity.y += 50

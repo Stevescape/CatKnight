@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b37ticwwchlfx"]
+
+[ext_resource type="Script" uid="uid://bfnon0xbwj0cc" path="res://scripts/audio_player.gd" id="1_1qhh7"]
+[ext_resource type="AudioStream" uid="uid://0uaca77e4r8h" path="res://audio/Kitty Knight Theme.wav" id="1_syohv"]
+[ext_resource type="AudioStream" uid="uid://bt4k7klhdq7bb" path="res://audio/Stage 1 - Forest Section.wav" id="2_qbjj0"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mfaxx"]
+clip_count = 2
+clip_0/name = &"kitty_theme"
+clip_0/stream = ExtResource("1_syohv")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+clip_1/name = &"forest_theme"
+clip_1/stream = ExtResource("2_qbjj0")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" unique_id=2055667392]
+process_mode = 3
+stream = SubResource("AudioStreamInteractive_mfaxx")
+autoplay = true
+script = ExtResource("1_1qhh7")

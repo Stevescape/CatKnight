@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt4k7klhdq7bb"
+path="res://.godot/imported/Stage 1 - Forest Section.wav-f29b7b6652e83a0581a0a9c625786ecc.sample"
+
+[deps]
+
+source_file="res://audio/Stage 1 - Forest Section.wav"
+dest_files=["res://.godot/imported/Stage 1 - Forest Section.wav-f29b7b6652e83a0581a0a9c625786ecc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
