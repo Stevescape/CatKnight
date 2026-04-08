@@ -56,12 +56,25 @@ const tracks = [
 func _play_music(clip_name: String):
 	get_stream_playback().switch_to_clip_by_name(clip_name)
 	
-func _random_pitch():
-	return randf_range(min_pitch, max_pitch)
+func _random_pitch(min, max):
+	return randf_range(min, max)
 	
-func play_sfx(sfx_enum: SFX):
+func play_sfx(sfx_enum: SFX, min_par=999, max_par=999):
 	var player = SFX_PLAYERS[sfx_enum]
-	player.pitch_scale = _random_pitch()
+	var min_num
+	var max_num
+	if min_par != 999:
+		min_num = min_par
+	else:
+		min_num = min_pitch
+	
+	if max_par != 999:
+		max_num = max_par
+	else:
+		max_num = max_pitch
+		
+	
+	player.pitch_scale = _random_pitch(min_num, max_num)
 	player.play()
 	
 func change_clip(song: SONGS):

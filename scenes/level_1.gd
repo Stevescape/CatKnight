@@ -33,7 +33,7 @@ func _on_music_value_changed(value: float) -> void:
 	AudioPlayer.music_volume = value
 
 func _on_sfx_value_changed(value: float) -> void:
-	AudioPlayer.master_volume = value
+	AudioPlayer.sfx_volume = value
 
 func _on_menu_pressed() -> void:
 	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)

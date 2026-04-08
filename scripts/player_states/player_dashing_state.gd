@@ -35,8 +35,8 @@ func enter():
 	else:
 		dash_direction = character.last_direction
 		
-	if character.is_on_wall() and character.last_wall_normal != Vector2.ZERO:
-		dash_direction = 1 if character.last_wall_normal.x > 0 else -1
+	if character.is_touching_wall():
+		dash_direction = 1 if character.get_wall_normal().x > 0 else -1
 	
 	character.air_dash_available = false
 	dash_timer = character.air_dash_duration

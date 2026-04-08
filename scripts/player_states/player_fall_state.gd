@@ -41,7 +41,7 @@ func update(delta: float):
 		return
 	
 	# wall sliding
-	if character.is_on_wall() and character.is_moving_towards_wall() and not character.is_on_floor() and character.velocity.y > 0:
+	if character.is_touching_wall() and character.is_moving_towards_wall() and not character.is_on_floor() and character.velocity.y > 0:
 		state_transition.emit(self, "wall sliding")
 		return
 

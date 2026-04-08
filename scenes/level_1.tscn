@@ -279,6 +279,12 @@ script = ExtResource("21_y0ove")
 target_position = Vector2(0, 20)
 collision_mask = 16
 
+[node name="RightWallDetector" type="RayCast2D" parent="Player" unique_id=1349531525]
+target_position = Vector2(10, 0)
+
+[node name="LeftWallDetector" type="RayCast2D" parent="Player" unique_id=1049794698]
+target_position = Vector2(-10, 0)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=877105166]
 
 [node name="JumpMode" type="Label" parent="CanvasLayer" unique_id=213611422]

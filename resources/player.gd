@@ -202,6 +202,14 @@ func is_moving_towards_wall():
 	var input_x = Input.get_axis("move_left", "move_right")
 	return (input_x > 0 and get_wall_normal().x < 0) or (input_x < 0 and get_wall_normal().x > 0)
 	
+func is_touching_wall():
+	if $LeftWallDetector.is_colliding():
+		return -1
+	elif $RightWallDetector.is_colliding():
+		return 1
+	else:
+		return 0
+	
 func update_facing_dir(dir: Direction):
 	last_direction = dir
 	refresh_anim()

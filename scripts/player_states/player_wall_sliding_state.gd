@@ -14,7 +14,7 @@ func update(delta: float):
 	var input_x = Input.get_axis("move_left", "move_right")
 	
 	# Check if on wall
-	if character.is_on_wall() and character.is_moving_towards_wall():
+	if character.is_touching_wall() and character.is_moving_towards_wall():
 		character.wall_slide_timer.start()
 
 	# Grace period for being off wall
