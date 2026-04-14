@@ -418,7 +418,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=757269531 node_paths=PackedStringArray("patrol_points")]
-position = Vector2(-166, -917)
+position = Vector2(-13, 151)
 script = ExtResource("22_awarj")
 patrol_speed = 10.0
 chase_speed = 15.0
@@ -454,10 +454,10 @@ script = ExtResource("27_lkded")
 [node name="Waypoints" type="Node" parent="Enemy" unique_id=690228961]
 
 [node name="Point1" type="Marker2D" parent="Enemy/Waypoints" unique_id=1220492829]
-position = Vector2(10, -75)
+position = Vector2(-12, 151)
 
 [node name="Point2" type="Marker2D" parent="Enemy/Waypoints" unique_id=639350366]
-position = Vector2(95, -75)
+position = Vector2(67, 151)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=661941850]
 process_mode = 3

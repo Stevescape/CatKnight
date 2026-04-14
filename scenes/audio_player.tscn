@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://db1lsyv63a1bt" path="res://audio/dog_wizard/Dog_Wizard_Theme_Empowered.wav" id="7_ddj1p"]
 [ext_resource type="AudioStream" uid="uid://dqbcf2swkv2r5" path="res://audio/sfx/Death.wav" id="7_wiaen"]
 [ext_resource type="AudioStream" uid="uid://bltch2fx35jpy" path="res://audio/sfx/Land.wav" id="8_107af"]
+[ext_resource type="AudioStream" uid="uid://rq1kwxvsvbb3" path="res://audio/Kitty_Knight_Game_Over.wav" id="8_kbhea"]
 [ext_resource type="AudioStream" uid="uid://t0jkvvkkanya" path="res://audio/alex_sfx/Kitty_Knight_Checkpoint.wav" id="9_ffhcf"]
 [ext_resource type="AudioStream" uid="uid://s3nn1lvqa8e6" path="res://audio/sfx/Spring.wav" id="10_107af"]
 [ext_resource type="AudioStream" uid="uid://jps03o22k7wv" path="res://audio/alex_sfx/Kitty_Knight_New_Pounce.wav" id="10_mt4ah"]
@@ -21,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dm5xec512ht7c" path="res://audio/cutscene_soundfx/SFX_Wall_Crumble.wav" id="19_d67ob"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mfaxx"]
-clip_count = 7
+clip_count = 8
 clip_0/name = &"kitty_theme"
 clip_0/stream = ExtResource("1_syohv")
 clip_0/auto_advance = 1
@@ -47,6 +48,9 @@ clip_5/next_clip = 6
 clip_6/name = &"dog_empowered"
 clip_6/stream = ExtResource("7_ddj1p")
 clip_6/auto_advance = 0
+clip_7/name = &"game_over"
+clip_7/stream = ExtResource("8_kbhea")
+clip_7/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1.0,
