@@ -10,6 +10,7 @@ enum SONGS {
 	DOG_CALM,
 	DOG_TRANSITION,
 	DOG_EMPOWERED,
+	GAME_OVER,
 }
 
 enum SFX {
@@ -69,6 +70,7 @@ const tracks = [
 	"dog_calm",
 	"dog_transition",
 	"dog_empowered",
+	"game_over",
 	]
 	
 func _play_music(clip_name: String):
