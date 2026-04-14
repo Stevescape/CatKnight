@@ -236,6 +236,7 @@ position = Vector2(-398, -55)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("10_q0ron")
+lives = 5
 hud = NodePath("../CanvasLayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
