@@ -51,6 +51,7 @@ pounceable=""
 hurt_collide=""
 respawn_on_collide=""
 player=""
+zoom_out=""
 
 [gui]
 

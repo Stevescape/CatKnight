@@ -26,7 +26,6 @@ func enter():
 	character.coyote_timer.stop()
 	min_jump_timer.start()
 	character.wall_jump_available = false
-	character.jump_available = false
 
 func update(delta: float):
 	if character.velocity.y < 0 and not Input.is_action_pressed("jump") and min_jump_timer.time_left <= 0:

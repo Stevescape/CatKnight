@@ -20,6 +20,7 @@ func update(delta: float):
 		character.coyote_timer.start()
 		character.jump_available = true
 		character.air_dash_available = true
+		character.wall_jump_available = true
 	
 	if Input.is_action_pressed("move_down"):
 		cur_look = clamp(cur_look + delta, 0, 100)

@@ -73,7 +73,10 @@ var mutation_cooldown: Timer = Timer.new()
 @onready var portrait: TextureRect = %Portrait
 
 var portraits := {
-	"Tiger Princess": preload("res://dialogue/portraits/tigerprincesssPortrait.png")
+	"Tiger Princess": preload("res://dialogue/portraits/tigerprincesssPortrait.png"),
+	"Dog Wizard": preload("res://dialogue/portraits/(TEMP)dogWizardPortrait.png"),
+	"Rat Knight": preload("res://dialogue/portraits/ratKnightPortrait.png"),
+	"Bird Knight": preload("res://dialogue/portraits/birdKnightPortrait.png"),
 }
 
 func _ready() -> void:

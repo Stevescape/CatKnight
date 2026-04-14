@@ -60,7 +60,7 @@ func update(delta: float):
 		
 	# Pounce off of wall
 	if Input.is_action_just_pressed("pounce"):
-		state_transition.emit(self, "dashing")
+		state_transition.emit(self, "wall pounce")
 		return
 
 	character.move_and_slide()

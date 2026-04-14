@@ -45,6 +45,9 @@ var wall_slide_timer: Timer
 @export var jump_buffer_time: float = 0.1
 var jump_buffer_timer: Timer
 
+@export var wall_hold_time: float = 0.25
+var wall_hold_timer: Timer
+
 @onready var sm: Node = $StateMachine
 
 var horizontal_input: float = 0.0
@@ -160,6 +163,12 @@ func _ready():
 	add_child(wall_slide_timer)
 	wall_slide_timer.wait_time = wall_slide_time
 	wall_slide_timer.one_shot = true
+	
+	# Wall Pounce Timer
+	wall_hold_timer = Timer.new()
+	add_child(wall_hold_timer)
+	wall_hold_timer.wait_time = wall_hold_time
+	wall_hold_timer.one_shot = true
 	
 	gravity = _calculate_gravity(max_jump_height, time_to_reach_peak) * 1/60
 	jump_velocity = _calculate_initial_velocity(max_jump_height, time_to_reach_peak)

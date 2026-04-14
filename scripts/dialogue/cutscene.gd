@@ -12,7 +12,6 @@ var dialogue_titles := [
 	"amulet",
 	"tiger_amulet",
 	"fall_of_kitty",
-	"disposal",
 ]
 
 @onready var anim_player := $AnimationPlayer
@@ -44,6 +43,9 @@ func advance_dialogue() -> void:
 
 func _on_dialogue_manager_dialogue_ended(dialogue):
 	anim_player.play()
+	
+func swap_to_forest():
+	anim_player.play("forest")
 	
 func swap_scene():
 	SceneTransition.change_scene("res://scenes/level_1.tscn")

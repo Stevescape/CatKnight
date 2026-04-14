@@ -63,3 +63,11 @@ func _physics_process(delta: float) -> void:
 
 func random_coord() -> Vector2:
 	return Vector2(rng.randf_range(-screenshake_strength, screenshake_strength), rng.randf_range(-screenshake_strength, screenshake_strength))
+
+
+	
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("zoom_out"):
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(self, "zoom", Vector2(0.8, 0.8), 1)

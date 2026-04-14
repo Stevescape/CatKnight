@@ -5,8 +5,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.change_clip(AudioPlayer.SONGS.FOREST)
-	player.global_position = Checkpoint.checkpoint_pos
-	$Camera2D.global_position = Checkpoint.checkpoint_pos
+	#player.global_position = Checkpoint.checkpoint_pos
+	#$Camera2D.global_position = Checkpoint.checkpoint_pos
 
 func resume_game():
 	get_tree().paused = false

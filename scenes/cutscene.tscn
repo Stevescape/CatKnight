@@ -12,6 +12,706 @@
 [ext_resource type="Texture2D" uid="uid://tmq64e1b3kt0" path="res://sprites/cutscenes/throne_room/cage.png" id="10_v50sc"]
 [ext_resource type="Texture2D" uid="uid://t5ewkal5l467" path="res://sprites/cutscenes/throne_room/slash.png" id="11_wxq4c"]
 [ext_resource type="Texture2D" uid="uid://bldaxileoncp4" path="res://sprites/cutscenes/throne_room/BirdKnightSTILL.png" id="12_q01xw"]
+[ext_resource type="Material" uid="uid://reec3ak22v3q" path="res://shaders/backgrond.tres" id="13_mu2gi"]
+[ext_resource type="Texture2D" uid="uid://b6s50oc53fhw2" path="res://sprites/background/farthest_tree.png" id="14_c7dhu"]
+[ext_resource type="Texture2D" uid="uid://bgs5imy1517mp" path="res://sprites/background/middle_tree_2.png" id="15_qthij"]
+[ext_resource type="Texture2D" uid="uid://cthdos03gjkva" path="res://sprites/background/middle_tree_1.png" id="16_er82a"]
+
+[sub_resource type="Animation" id="Animation_ury3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThroneScene/Cat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThroneScene/Cat:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_right"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThroneScene/Rat:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThroneScene/Rat/RatDialogue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ThroneScene/UNDARK:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ThroneScene/Dog_Wizard:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(385, 35)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ThroneScene/Rat:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(271, 276)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ThroneScene/Cage:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ThroneScene/Cage:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(477, 157)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ThroneScene/Amulet:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ThroneScene/Tiger:animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ThroneScene/Amulet:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(479, 240)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ThroneScene/slash:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ThroneScene/Bird:flip_h")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ThroneScene/Bird/Dialogue:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ThroneScene/Bird:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157, 261)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ThroneScene/ColorRect:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("ForestScene/BIRD:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2397, 187)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("ForestScene/Cat:flip_h")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ForestScene/Cat:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2403, 191)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Camera2D:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 201)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Camera2D:zoom")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("ForestScene/ColorRect:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m2h23"]
+resource_name = "cutscene"
+length = 60.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThroneScene/Cat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 18, 20.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, 291), Vector2(-2, 291), Vector2(307, 291), Vector2(307, 291), Vector2(45, 291)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThroneScene/Cat:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 14.866667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"walk", &"idle", &"dead"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThroneScene/Rat:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.81, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThroneScene/Rat/RatDialogue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.2, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4, 5.5, 10.533334, 11.50191, 12.8, 14.6, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}, {
+"args": [],
+"method": &"advance_dialogue"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1.0],
+"method": &"shake_camera"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ThroneScene/UNDARK:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ThroneScene/Dog_Wizard:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1.2745576),
+"update": 0,
+"values": [Vector2(385, 35), Vector2(385, 35), Vector2(385, 177)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ThroneScene/Rat:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(10.533334, 10.733334, 11.2, 17.5, 17.8, 18, 20.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(271, 276), Vector2(271, 291), Vector2(353, 291), Vector2(353, 291), Vector2(309, 291), Vector2(309, 291), Vector2(47, 291)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ThroneScene/Cage:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 11.5, 11.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ThroneScene/Cage:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(12.1, 12.3),
+"transitions": PackedFloat32Array(1, 2.928171),
+"update": 0,
+"values": [Vector2(477, 157), Vector2(477, 246)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ThroneScene/Amulet:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(12.8, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ThroneScene/Tiger:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(12.8, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"no_amulet"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ThroneScene/Amulet:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(13, 14.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(479, 240), Vector2(407, 182)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ThroneScene/slash:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(14.6, 14.8, 15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath(".")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(5.9333334, 14.7, 21.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_dog_intro"
+}, {
+"args": [],
+"method": &"play_dog_empowered"
+}, {
+"args": [],
+"method": &"swap_to_forest"
+}]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ThroneScene/Bird:flip_h")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 3.016446, 18.559607),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("ThroneScene/Bird/Dialogue:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 4.206685, 5.4927),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("ThroneScene/Bird:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(10.521749, 10.732647, 11.20131),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(157, 261), Vector2(157, 278), Vector2(258, 278)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ThroneScene/ColorRect:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 19.1, 20.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/20/type = "method"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath(".")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(5.9, 12.9, 14.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [8],
+"method": &"play_sfx"
+}, {
+"args": [7],
+"method": &"play_sfx"
+}, {
+"args": [9],
+"method": &"play_sfx"
+}]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Camera2D:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 201)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Camera2D:zoom")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 1.3)]
+}
+
+[sub_resource type="Animation" id="Animation_q01xw"]
+resource_name = "forest"
+length = 6.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ForestScene/BIRD:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2397, 187), Vector2(1220, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForestScene/Cat:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ForestScene/Cat:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 2.2, 3.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2403, 191), Vector2(1853.7334, 191), Vector2(1165, 534)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1788, 307)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ForestScene/ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"swap_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qop0"]
+_data = {
+&"RESET": SubResource("Animation_ury3t"),
+&"cutscene": SubResource("Animation_m2h23"),
+&"forest": SubResource("Animation_q01xw")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f3v4i"]
 atlas = ExtResource("12_q01xw")
@@ -194,514 +894,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="Animation" id="Animation_ury3t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-9, 288)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cat:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_right"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rat:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rat/RatDialogue:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("UNDARK:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Dog_Wizard:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(385, 35)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Rat:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(271, 276)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cage:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Cage:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(477, 157)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Amulet:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Tiger:animation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Amulet:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(479, 240)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("slash:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Bird:flip_h")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Bird/Dialogue:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Bird:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(157, 261)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("ColorRect:modulate")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_m2h23"]
-resource_name = "cutscene"
-length = 60.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cat:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 4, 16.5, 18.733334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-2, 291), Vector2(-2, 291), Vector2(307, 291), Vector2(307, 291), Vector2(45, 291)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cat:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 14.866667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [&"walk", &"idle", &"dead"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rat:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.81, 11.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Rat/RatDialogue:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 4.2, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(4, 5.5, 10.533334, 11.50191, 12.8, 14.6, 15.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}, {
-"args": [],
-"method": &"advance_dialogue"
-}]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Camera2D")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [-1.0],
-"method": &"shake_camera"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("UNDARK:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 6, 8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Dog_Wizard:position")
-tracks/7/interp = 2
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 9, 10),
-"transitions": PackedFloat32Array(1, 1, 1.2745576),
-"update": 0,
-"values": [Vector2(385, 35), Vector2(385, 35), Vector2(385, 177)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Rat:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(10.533334, 10.733334, 11.2, 16, 16.3, 16.5, 18.733334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(271, 276), Vector2(271, 291), Vector2(353, 291), Vector2(353, 291), Vector2(309, 291), Vector2(309, 291), Vector2(47, 291)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Cage:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 11.5, 11.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Cage:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(12.1, 12.3),
-"transitions": PackedFloat32Array(1, 2.928171),
-"update": 0,
-"values": [Vector2(477, 157), Vector2(477, 246)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Amulet:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(12.8, 13),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Tiger:animation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(12.8, 13),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"idle", &"no_amulet"]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Amulet:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(13, 14.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(479, 240), Vector2(407, 182)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("slash:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(14.6, 14.8, 15),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/15/type = "method"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath(".")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(5.9333334, 14.766666, 19.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"play_dog_intro"
-}, {
-"args": [],
-"method": &"play_dog_transition"
-}, {
-"args": [],
-"method": &"swap_scene"
-}]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Bird:flip_h")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 3.016446, 17.059607),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Bird/Dialogue:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0, 4.206685, 5.4927),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("Bird:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(10.521749, 10.732647, 11.20131),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(157, 261), Vector2(157, 278), Vector2(258, 278)]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("ColorRect:modulate")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0, 17.6, 19.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/20/type = "method"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath(".")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(5.9, 12.9, 14.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [8],
-"method": &"play_sfx"
-}, {
-"args": [7],
-"method": &"play_sfx"
-}, {
-"args": [9],
-"method": &"play_sfx"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8qop0"]
-_data = {
-&"RESET": SubResource("Animation_ury3t"),
-&"cutscene": SubResource("Animation_m2h23")
-}
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ptll"]
 animations = [{
 "frames": [{
@@ -713,141 +905,181 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mu2gi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2h23")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qop0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu2gi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7dhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qthij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er82a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40a5i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
 [node name="Cutscene" type="Node2D" unique_id=571160130]
 script = ExtResource("1_bb0yx")
 
-[node name="DARK" type="TextureRect" parent="." unique_id=462696189]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=136974514]
+libraries/ = SubResource("AnimationLibrary_8qop0")
+autoplay = &"cutscene"
+
+[node name="ThroneScene" type="Node" parent="." unique_id=1995260346]
+
+[node name="DARK" type="TextureRect" parent="ThroneScene" unique_id=462696189]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("2_d18fx")
 
-[node name="UNDARK" type="TextureRect" parent="." unique_id=1460295988]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UNDARK" type="TextureRect" parent="ThroneScene" unique_id=1460295988]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("1_edmg7")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1319634225]
-position = Vector2(326, 201)
-zoom = Vector2(1.3, 1.3)
-script = ExtResource("3_3ptll")
-
-[node name="Bird" type="AnimatedSprite2D" parent="." unique_id=1977776242]
+[node name="Bird" type="AnimatedSprite2D" parent="ThroneScene" unique_id=1977776242]
 position = Vector2(157, 261)
 sprite_frames = SubResource("SpriteFrames_bcuqd")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="Dialogue" type="MarginContainer" parent="Bird" unique_id=512345120]
+[node name="Dialogue" type="MarginContainer" parent="ThroneScene/Bird" unique_id=512345120]
 visible = false
 offset_left = -32.0
 offset_top = -51.0
 offset_right = 35.0
 offset_bottom = -28.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Bird/Dialogue" unique_id=1584944718]
+[node name="PanelContainer" type="PanelContainer" parent="ThroneScene/Bird/Dialogue" unique_id=1584944718]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fs8wb")
 
-[node name="MarginContainer" type="MarginContainer" parent="Bird/Dialogue/PanelContainer" unique_id=1236753270]
+[node name="MarginContainer" type="MarginContainer" parent="ThroneScene/Bird/Dialogue/PanelContainer" unique_id=1236753270]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="Label" type="Label" parent="Bird/Dialogue/PanelContainer/MarginContainer" unique_id=542317688]
+[node name="Label" type="Label" parent="ThroneScene/Bird/Dialogue/PanelContainer/MarginContainer" unique_id=542317688]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Congratulations!"
 
-[node name="Rat" type="AnimatedSprite2D" parent="." unique_id=1357853057]
+[node name="Rat" type="AnimatedSprite2D" parent="ThroneScene" unique_id=1357853057]
 position = Vector2(271, 276)
 sprite_frames = SubResource("SpriteFrames_75brc")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="RatDialogue" type="MarginContainer" parent="Rat" unique_id=1973765941]
+[node name="RatDialogue" type="MarginContainer" parent="ThroneScene/Rat" unique_id=1973765941]
 visible = false
 offset_left = -48.0
 offset_top = -45.0
 offset_right = 51.0
 offset_bottom = -22.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Rat/RatDialogue" unique_id=565462413]
+[node name="PanelContainer" type="PanelContainer" parent="ThroneScene/Rat/RatDialogue" unique_id=565462413]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_q01xw")
 
-[node name="MarginContainer" type="MarginContainer" parent="Rat/RatDialogue/PanelContainer" unique_id=1556254726]
+[node name="MarginContainer" type="MarginContainer" parent="ThroneScene/Rat/RatDialogue/PanelContainer" unique_id=1556254726]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="Label" type="Label" parent="Rat/RatDialogue/PanelContainer/MarginContainer" unique_id=1733110480]
+[node name="Label" type="Label" parent="ThroneScene/Rat/RatDialogue/PanelContainer/MarginContainer" unique_id=1733110480]
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Happy Birthday Kiddo."
 
-[node name="Tiger" type="AnimatedSprite2D" parent="." unique_id=650910420]
+[node name="Tiger" type="AnimatedSprite2D" parent="ThroneScene" unique_id=650910420]
 position = Vector2(480, 248)
 sprite_frames = SubResource("SpriteFrames_q01xw")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.44038507
 flip_h = true
 
-[node name="Cat" type="AnimatedSprite2D" parent="." unique_id=1947838434]
+[node name="Cat" type="AnimatedSprite2D" parent="ThroneScene" unique_id=1947838434]
 position = Vector2(-9, 288)
 sprite_frames = SubResource("SpriteFrames_f3v4i")
 animation = &"idle_right"
 autoplay = "walk"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=136974514]
-libraries/ = SubResource("AnimationLibrary_8qop0")
-autoplay = &"cutscene"
-
-[node name="Amulet" type="Sprite2D" parent="." unique_id=924341655]
+[node name="Amulet" type="Sprite2D" parent="ThroneScene" unique_id=924341655]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(479, 240)
 texture = ExtResource("9_75brc")
 flip_h = true
 
-[node name="Dog_Wizard" type="AnimatedSprite2D" parent="." unique_id=1991506398]
+[node name="Dog_Wizard" type="AnimatedSprite2D" parent="ThroneScene" unique_id=1991506398]
 position = Vector2(385, 35)
 sprite_frames = SubResource("SpriteFrames_3ptll")
 animation = &"idle"
 
-[node name="Cage" type="Sprite2D" parent="." unique_id=1347192915]
+[node name="Cage" type="Sprite2D" parent="ThroneScene" unique_id=1347192915]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(477, 157)
 texture = ExtResource("10_v50sc")
 
-[node name="Foreground" type="Control" parent="." unique_id=1130890090]
+[node name="Foreground" type="Control" parent="ThroneScene" unique_id=1130890090]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Foreground" unique_id=1303138396]
+[node name="Sprite2D" type="Sprite2D" parent="ThroneScene/Foreground" unique_id=1303138396]
 position = Vector2(496, 271)
 texture = ExtResource("1_edmg7")
 region_enabled = true
 region_rect = Rect2(479, 260, 36, 22)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Foreground" unique_id=1477751082]
+[node name="Sprite2D2" type="Sprite2D" parent="ThroneScene/Foreground" unique_id=1477751082]
 position = Vector2(477, 264)
 texture = ExtResource("1_edmg7")
 region_enabled = true
 region_rect = Rect2(478, 260, 1, 8)
 
-[node name="slash" type="TextureRect" parent="." unique_id=1136721414]
+[node name="slash" type="TextureRect" parent="ThroneScene" unique_id=1136721414]
 visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("11_wxq4c")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1243207987]
+[node name="ColorRect" type="ColorRect" parent="ThroneScene" unique_id=1243207987]
 modulate = Color(1, 1, 1, 0)
 offset_left = -38.999996
 offset_top = -15.999999
@@ -855,3 +1087,58 @@ offset_right = 1.0000038
 offset_bottom = 24.0
 scale = Vector2(18.4, 10.68)
 color = Color(0, 0, 0, 1)
+
+[node name="ForestScene" type="Node" parent="." unique_id=786168857]
+
+[node name="Background" type="Node2D" parent="ForestScene" unique_id=1264388196]
+position = Vector2(1694, 362)
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ForestScene/Background" unique_id=1766662398]
+texture_repeat = 1
+material = ExtResource("13_mu2gi")
+texture = ExtResource("14_c7dhu")
+region_rect = Rect2(0, 0, 1280, 1440)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ForestScene/Background" unique_id=1966018975]
+texture_repeat = 1
+material = ExtResource("13_mu2gi")
+position = Vector2(-3, -1)
+texture = ExtResource("15_qthij")
+region_rect = Rect2(0, 0, 1280, 1440)
+
+[node name="BIRD" type="Sprite2D" parent="ForestScene" unique_id=401198666]
+position = Vector2(2397, 187)
+rotation = -1.5707964
+texture = ExtResource("12_q01xw")
+flip_h = true
+hframes = 2
+
+[node name="Cat" type="AnimatedSprite2D" parent="ForestScene" unique_id=1618884691]
+position = Vector2(2403, 191)
+sprite_frames = SubResource("SpriteFrames_mu2gi")
+animation = &"dead"
+autoplay = "dead"
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="ForestScene" unique_id=1925496552]
+texture_repeat = 1
+material = ExtResource("13_mu2gi")
+position = Vector2(1694, 362)
+scale = Vector2(-1, 1)
+texture = ExtResource("16_er82a")
+region_rect = Rect2(0, 0, 1280, 1440)
+
+[node name="ColorRect" type="ColorRect" parent="ForestScene" unique_id=1045473939]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1008.9999
+offset_top = -31.999998
+offset_right = 1068.9999
+offset_bottom = 8.000002
+scale = Vector2(23.630404, 22.714142)
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1319634225]
+position = Vector2(326, 201)
+zoom = Vector2(0.75, 0.75)
+script = ExtResource("3_3ptll")
