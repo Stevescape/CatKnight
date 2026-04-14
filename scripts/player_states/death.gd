@@ -7,7 +7,7 @@ var debounce = false
 func enter():
 	debounce = false
 	AudioPlayer.play_sfx(AudioPlayer.SFX.DEATH)
-
+	
 func update(delta):
 	if debounce:
 		return
