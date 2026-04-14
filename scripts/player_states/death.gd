@@ -7,6 +7,7 @@ var debounce = false
 func enter():
 	debounce = false
 	AudioPlayer.play_sfx(AudioPlayer.SFX.DEATH)
+	
 		
 func update(delta):
 	# Await animation finished
@@ -20,6 +21,7 @@ func update(delta):
 		return
 	debounce = true
 	
+	
 	# Fade black in
 	fade_anim_player.play("fade")
 	await fade_anim_player.animation_finished
@@ -30,6 +32,8 @@ func update(delta):
 	
 	print("Swapping to idle")
 	state_transition.emit(self, "idle")
+	if character.current_health > 0:
+		character.take_damage(1, 1)
 	
 	
 	# Transition to idle
