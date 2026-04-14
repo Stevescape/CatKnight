@@ -27,6 +27,7 @@ func shake_camera(strength: float = -1):
 	else:
 		screenshake_strength = strength
 
+
 func hit_stop(time: float = -1):
 	if time == -1:
 		time = default_hit_stop	

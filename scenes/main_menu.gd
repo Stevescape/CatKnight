@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
-	SceneTransition.change_scene("res://scenes/level_1.tscn")
+	SceneTransition.change_scene("res://scenes/cutscene.tscn")
 	
 
 
@@ -34,3 +34,8 @@ func _on_music_value_changed(value: float) -> void:
 
 func _on_sfx_value_changed(value: float) -> void:
 	AudioPlayer.sfx_volume = value
+
+
+func _on_skip_pressed() -> void:
+	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
+	SceneTransition.change_scene("res://scenes/level_1.tscn")

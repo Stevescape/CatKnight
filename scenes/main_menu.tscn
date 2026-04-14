@@ -55,6 +55,10 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
 
+[node name="skip" type="Button" parent="main_buttons" unique_id=1318494806]
+layout_mode = 2
+text = "Skip Cutscene"
+
 [node name="options_menu" type="VBoxContainer" parent="." unique_id=23716426]
 visible = false
 layout_mode = 1
@@ -113,6 +117,7 @@ text = "Back"
 [connection signal="pressed" from="main_buttons/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="main_buttons/option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="main_buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="main_buttons/skip" to="." method="_on_skip_pressed"]
 [connection signal="value_changed" from="options_menu/master" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="options_menu/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="options_menu/sfx" to="." method="_on_sfx_value_changed"]
