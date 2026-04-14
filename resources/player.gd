@@ -146,6 +146,7 @@ func shake_camera(strength: float = -1):
 
 func _ready():
 	current_health = max_health
+	lives = max_health
 	# Coyote Timer
 	coyote_timer = Timer.new()
 	add_child(coyote_timer)
@@ -226,6 +227,12 @@ func is_touching_wall():
 func update_facing_dir(dir: Direction):
 	last_direction = dir
 	refresh_anim()
+	
+func heal():
+	if lives < max_health:
+		lives += 1
+		hud.update_hearts(lives)
+	
 	
 func _physics_process(delta: float) -> void:
 	# player health update

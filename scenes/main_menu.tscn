@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhdktxbxr1d65" path="res://sprites/menu/cloud4.png" id="5_flqon"]
 [ext_resource type="Texture2D" uid="uid://b3wbguxgu62dw" path="res://sprites/menu/dropdown.png" id="6_rcqid"]
 [ext_resource type="Texture2D" uid="uid://cf21kicdr6pvx" path="res://sprites/menu/IMG_0769.png" id="7_5dd4i"]
+[ext_resource type="FontFile" uid="uid://u434v00csilx" path="res://fonts/Saga 8.ttf" id="8_lgwnu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ajci"]
 atlas = ExtResource("2_jk1qb")
@@ -547,55 +548,31 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("background:position")
+tracks/0/path = NodePath("VBoxContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(320, 180)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("main_buttons:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(262, 112)]
+"values": [Vector2(184, -316)]
 }
 
 [sub_resource type="Animation" id="Animation_5dd4i"]
 resource_name = "menu"
-length = 1.8750125
+length = 2.2500124
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("background:position")
+tracks/0/path = NodePath("VBoxContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.5, 1.625),
+"transitions": PackedFloat32Array(1, 0.29730177, 2.6390154),
 "update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("main_buttons:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.8750125),
-"transitions": PackedFloat32Array(1, 0.21022421, 4.141059),
-"update": 0,
-"values": [Vector2(252, -243), Vector2(252, -243), Vector2(252, 59.99997)]
+"values": [Vector2(184, -316), Vector2(184, -316), Vector2(184, 24)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgwnu"]
@@ -620,45 +597,54 @@ sprite_frames = SubResource("SpriteFrames_woojs")
 animation = &"pan"
 autoplay = "pan"
 
-[node name="main_buttons" type="VBoxContainer" parent="." unique_id=1610678106]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=374090564]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = -68.0
-offset_right = 78.0
-offset_bottom = 172.00006
+offset_left = -136.0
+offset_top = -496.0
+offset_right = 136.0
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1562890914]
+custom_minimum_size = Vector2(272, 200)
+layout_mode = 2
+texture = ExtResource("7_5dd4i")
+
+[node name="main_buttons" type="VBoxContainer" parent="VBoxContainer" unique_id=1610678106]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="main_buttons" unique_id=1562890914]
-layout_mode = 2
-texture = ExtResource("7_5dd4i")
-
-[node name="start" type="Button" parent="main_buttons" unique_id=1911249022]
+[node name="start" type="Button" parent="VBoxContainer/main_buttons" unique_id=1911249022]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Start Game"
 
-[node name="option" type="Button" parent="main_buttons" unique_id=116332920]
+[node name="option" type="Button" parent="VBoxContainer/main_buttons" unique_id=116332920]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Options"
 metadata/_edit_use_anchors_ = true
 
-[node name="quit" type="Button" parent="main_buttons" unique_id=160432850]
+[node name="quit" type="Button" parent="VBoxContainer/main_buttons" unique_id=160432850]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Quit"
 
-[node name="skip" type="Button" parent="main_buttons" unique_id=1318494806]
+[node name="skip" type="Button" parent="VBoxContainer/main_buttons" unique_id=1318494806]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Skip Cutscene"
 
 [node name="options_menu" type="VBoxContainer" parent="." unique_id=23716426]
@@ -670,14 +656,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = -39.0
+offset_top = 27.0
 offset_right = 48.0
-offset_bottom = 39.0
+offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="options_menu" unique_id=548067732]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Master"
 
 [node name="master" type="HSlider" parent="options_menu" unique_id=758782506]
@@ -690,6 +677,7 @@ script = ExtResource("3_bqqt6")
 
 [node name="Label2" type="Label" parent="options_menu" unique_id=633844336]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Music"
 
 [node name="music" type="HSlider" parent="options_menu" unique_id=1340469938]
@@ -702,6 +690,7 @@ script = ExtResource("4_wu84c")
 
 [node name="Label3" type="Label" parent="options_menu" unique_id=502917363]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "SFX"
 
 [node name="sfx" type="HSlider" parent="options_menu" unique_id=586450870]
@@ -714,16 +703,17 @@ script = ExtResource("5_8ln24")
 
 [node name="back" type="Button" parent="options_menu" unique_id=728875847]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_lgwnu")
 text = "Back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=64573722]
 libraries/ = SubResource("AnimationLibrary_lgwnu")
 autoplay = &"menu"
 
-[connection signal="pressed" from="main_buttons/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="main_buttons/option" to="." method="_on_option_pressed"]
-[connection signal="pressed" from="main_buttons/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="main_buttons/skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_buttons/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_buttons/skip" to="." method="_on_skip_pressed"]
 [connection signal="value_changed" from="options_menu/master" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="options_menu/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="options_menu/sfx" to="." method="_on_sfx_value_changed"]

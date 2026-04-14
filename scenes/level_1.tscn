@@ -36,6 +36,8 @@
 [ext_resource type="Script" uid="uid://47kjicq1xbp6" path="res://scripts/volume_slider/master.gd" id="30_nossa"]
 [ext_resource type="Script" uid="uid://dpf18u0j2vch3" path="res://scripts/volume_slider/music.gd" id="31_hjqri"]
 [ext_resource type="Script" uid="uid://dowcirkqwi4nv" path="res://scripts/volume_slider/sfx.gd" id="32_hg84p"]
+[ext_resource type="FontFile" uid="uid://u434v00csilx" path="res://fonts/Saga 8.ttf" id="34_tdlki"]
+[ext_resource type="Script" uid="uid://bu7civxxxooqs" path="res://scripts/victory.gd" id="38_v8pws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sof0w"]
 texture = ExtResource("7_hjqri")
@@ -135,6 +137,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdlki"]
 size = Vector2(159, 316)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rscm6"]
+size = Vector2(323.5, 378)
+
 [node name="game" type="Node2D" unique_id=1560109685]
 script = ExtResource("1_k8ld0")
 
@@ -217,7 +222,7 @@ tile_map_data = PackedByteArray("AAAGAPj/AAABAAcAAAAGAPf/AAADAAcAAAAGAPb/AAABAAY
 tile_set = ExtResource("8_hg84p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
-position = Vector2(10128, -135)
+position = Vector2(-621, -901)
 process_callback = 0
 limit_right = 12300
 limit_smoothed = true
@@ -247,7 +252,7 @@ YIPPEEE
 CONGRATS"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825 node_paths=PackedStringArray("hud") groups=["player"]]
-position = Vector2(10179, -134)
+position = Vector2(-570, -900)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("10_q0ron")
@@ -316,6 +321,7 @@ script = ExtResource("23_hg84p")
 [node name="JumpMode" type="Label" parent="CanvasLayer" unique_id=213611422]
 offset_right = 54.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Variable Jump"
 label_settings = SubResource("LabelSettings_gyffv")
 horizontal_alignment = 1
@@ -489,6 +495,7 @@ grow_vertical = 2
 
 [node name="Label2" type="Label" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=977810938]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Master"
 
 [node name="master" type="HSlider" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=156226323]
@@ -501,6 +508,7 @@ script = ExtResource("30_nossa")
 
 [node name="Label3" type="Label" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=436972140]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Music"
 
 [node name="music" type="HSlider" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=1723018016]
@@ -513,6 +521,7 @@ script = ExtResource("31_hjqri")
 
 [node name="Label4" type="Label" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=340985193]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "SFX"
 
 [node name="sfx" type="HSlider" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=170130273]
@@ -525,14 +534,17 @@ script = ExtResource("32_hg84p")
 
 [node name="helmet" type="Button" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=2102111379]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Toggle Helmet"
 
 [node name="resume" type="Button" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=1016820722]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Resume"
 
 [node name="menu" type="Button" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=1777251194]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Main Menu"
 
 [node name="CameraLimits" type="Node2D" parent="." unique_id=1082358902]
@@ -544,6 +556,15 @@ position = Vector2(656, -6)
 position = Vector2(6130, -1240)
 shape = SubResource("RectangleShape2D_tdlki")
 
+[node name="victory" type="Area2D" parent="." unique_id=286030931]
+position = Vector2(12141, -664)
+collision_mask = 2
+script = ExtResource("38_v8pws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="victory" unique_id=787319688]
+position = Vector2(192.25, 15)
+shape = SubResource("RectangleShape2D_rscm6")
+
 [connection signal="area_entered" from="Camera2D/Area2D" to="Camera2D" method="_on_area_2d_area_entered"]
 [connection signal="value_changed" from="PauseMenu/ColorRect/VBoxContainer/master" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="PauseMenu/ColorRect/VBoxContainer/music" to="." method="_on_music_value_changed"]
@@ -551,3 +572,4 @@ shape = SubResource("RectangleShape2D_tdlki")
 [connection signal="pressed" from="PauseMenu/ColorRect/VBoxContainer/helmet" to="." method="_on_helmet_pressed"]
 [connection signal="pressed" from="PauseMenu/ColorRect/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/ColorRect/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="body_entered" from="victory" to="victory" method="_on_body_entered"]

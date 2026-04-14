@@ -18,3 +18,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("update checkpoint")
 		Checkpoint.prev_checkpoint_sprite = self
 		update_sprite()
+		var player = body as Player
+		player.heal()

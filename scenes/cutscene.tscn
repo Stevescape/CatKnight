@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2v78qxvygeka" path="res://sprites/cutscenes/throne_room/DARK castle throne room.png" id="2_d18fx"]
 [ext_resource type="Script" uid="uid://dupoqgkhw8fag" path="res://scripts/dialogue/cutscene/camera_2d.gd" id="3_3ptll"]
 [ext_resource type="Texture2D" uid="uid://br46brc1l2tk8" path="res://sprites/cutscenes/throne_room/TigerPrincessSTILL.png" id="3_fs8wb"]
+[ext_resource type="FontFile" uid="uid://dl1yu2anebd2q" path="res://fonts/Vest 9.ttf" id="5_c7dhu"]
 [ext_resource type="Texture2D" uid="uid://m2sijw4l8e1s" path="res://sprites/cutscenes/throne_room/dog_wizard_placeholder.png" id="6_bb0yx"]
 [ext_resource type="Texture2D" uid="uid://c4dmulrfmvum2" path="res://sprites/cutscenes/throne_room/kitty_knight_throne.png" id="7_v50sc"]
 [ext_resource type="Texture2D" uid="uid://cdbehkfuemoos" path="res://sprites/cutscenes/throne_room/amulet.png" id="9_75brc"]
@@ -994,6 +995,7 @@ theme_override_constants/margin_right = 5
 [node name="Label" type="Label" parent="ThroneScene/Bird/Dialogue/PanelContainer/MarginContainer" unique_id=542317688]
 texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_c7dhu")
 theme_override_font_sizes/font_size = 8
 text = "Congratulations!"
 
@@ -1023,6 +1025,7 @@ theme_override_constants/margin_right = 5
 [node name="Label" type="Label" parent="ThroneScene/Rat/RatDialogue/PanelContainer/MarginContainer" unique_id=1733110480]
 texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_c7dhu")
 theme_override_font_sizes/font_size = 8
 text = "Happy Birthday Kiddo."
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg8uj76u8jsyc"]
 
 [ext_resource type="Script" uid="uid://cml3h1t5s164g" path="res://scripts/menu/game_over.gd" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://u434v00csilx" path="res://fonts/Saga 8.ttf" id="2_wqhvx"]
 
 [node name="GameOver" type="Control" unique_id=704778833]
 layout_mode = 3
@@ -19,27 +20,48 @@ offset_bottom = 40.0
 scale = Vector2(15.921053, 9)
 color = Color(0, 0, 0, 1)
 
-[node name="main_menu" type="Button" parent="." unique_id=1911249022]
-layout_mode = 0
-offset_left = 271.0
-offset_top = 244.0
-offset_right = 367.0
-offset_bottom = 275.0
-scale = Vector2(0.90909094, 1.0625)
-mouse_default_cursor_shape = 2
-text = "Main Menu"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=996098105]
+texture_filter = 1
 layout_mode = 0
 offset_left = 126.0
 offset_top = 65.0
 offset_right = 213.0
 offset_bottom = 105.0
 scale = Vector2(4.364046, 4.5026326)
-text = "Game Over"
+theme_override_fonts/normal_font = ExtResource("2_wqhvx")
+bbcode_enabled = true
+text = "[center]Game Over"
 fit_content = true
 autowrap_mode = 0
 visible_characters_behavior = 1
 text_direction = 1
 
-[connection signal="pressed" from="main_menu" to="." method="_on_start_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=726576013]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="retry" type="Button" parent="VBoxContainer" unique_id=1593835440]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 16
+text = "Retry"
+
+[node name="main_menu" type="Button" parent="VBoxContainer" unique_id=1911249022]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_start_pressed"]

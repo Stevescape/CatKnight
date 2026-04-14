@@ -17,7 +17,12 @@ func update_hearts(current_health):
 
 		if lost_index >= 0 and lost_index < hearts.size():
 			play_heart_loss_effect(hearts[lost_index])
-
+	elif current_health > previous_health:
+		var gain_index = current_health - 1
+		
+		if  gain_index < hearts.size():
+			play_heart_gain_effect(hearts[gain_index])	
+	
 	previous_health = current_health
 
 func play_heart_loss_effect(heart):
@@ -42,3 +47,19 @@ func play_heart_loss_effect(heart):
 	tween.tween_callback(func():
 		heart.modulate = Color(0.5, 0.5, 0.5, 1)
 	)
+
+
+func play_heart_gain_effect(heart):
+	if heart == null:
+		return
+	heart.visible = true
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT)
+	heart.modulate = Color(0.5, 0.5, 0.5, 1)
+	heart.scale = Vector2(0.5, 0.5)
+	tween.tween_property(heart, "scale", Vector2(1, 1), 0.25)
+	tween.tween_callback(func():
+		heart.modulate = Color(1, 1, 1, 1)
+	)
+	
