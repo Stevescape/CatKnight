@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+#lives
+@export var lives: int = 3
+
 # movement
 @export var speed: float = 250.0
 @export var max_jump_height: float = 80

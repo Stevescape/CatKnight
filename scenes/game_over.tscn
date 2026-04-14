@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cg8uj76u8jsyc"]
+
+[ext_resource type="Script" uid="uid://cml3h1t5s164g" path="res://scripts/menu/game_over.gd" id="1_xeevv"]
+
+[node name="GameOver" type="Control" unique_id=704778833]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xeevv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=659123182]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(15.921053, 9)
+color = Color(0, 0, 0, 1)
+
+[node name="main_menu" type="Button" parent="." unique_id=1911249022]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 244.0
+offset_right = 367.0
+offset_bottom = 275.0
+scale = Vector2(0.90909094, 1.0625)
+mouse_default_cursor_shape = 2
+text = "Main Menu"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=996098105]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 65.0
+offset_right = 213.0
+offset_bottom = 105.0
+scale = Vector2(4.364046, 4.5026326)
+text = "Game Over"
+fit_content = true
+autowrap_mode = 0
+visible_characters_behavior = 1
+text_direction = 1
+
+[connection signal="pressed" from="main_menu" to="." method="_on_start_pressed"]
