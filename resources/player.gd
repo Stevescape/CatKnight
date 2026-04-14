@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+#lives
+@export var lives: int = 3
+
 # movement
 @export var speed: float = 250.0
 @export var max_jump_height: float = 80
@@ -63,11 +66,12 @@ var gravity: float = 0
 
 # health system
 @export var max_health: int = 5
-var current_health: float
+@export var current_health: float
 @export var heal_rate: float = 1
 @export var heal_delay: float = 1.0
 var time_since_damage: float = 0.0
 @export var passive_healing: bool = false
+@export var hud: CanvasLayer
 
 # damage knockback
 @export var knockback_duration: float = 0.2   # seconds
@@ -261,8 +265,10 @@ func take_damage(amount: float, attack_direction: int):
 	var last_attack_direction = attack_direction
 	knockback_velocity = Vector2(knockback_power.x * last_attack_direction, knockback_power.y)
 	
+	hud.update_hearts(current_health)
+	
 	if current_health <= 0:
-		die()
+		die() #  should be game over
 		return
 	# hurt state
 	sm.force_change_state("hurting")
@@ -291,7 +297,7 @@ func update_health(delta):
 	
 func _input(event):
 	if event.is_action_pressed("Damage"): # 
-		take_damage(1, 1)  # attack from right
+		take_damage(1, 1)  
 	if event.is_action_pressed("respawn"):
 		die()
 		return
