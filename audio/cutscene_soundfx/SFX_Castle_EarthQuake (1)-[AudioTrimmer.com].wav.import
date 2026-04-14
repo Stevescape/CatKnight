@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpf1h7akjinhv"
+path="res://.godot/imported/SFX_Castle_EarthQuake (1)-[AudioTrimmer.com].wav-284f521a02f7c06de3641ecea4f78b56.sample"
+
+[deps]
+
+source_file="res://audio/cutscene_soundfx/SFX_Castle_EarthQuake (1)-[AudioTrimmer.com].wav"
+dest_files=["res://.godot/imported/SFX_Castle_EarthQuake (1)-[AudioTrimmer.com].wav-284f521a02f7c06de3641ecea4f78b56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

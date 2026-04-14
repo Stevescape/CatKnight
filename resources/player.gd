@@ -218,6 +218,7 @@ func _physics_process(delta: float) -> void:
 	# player health update
 	update_health(delta)
 	
+	#print(sm.current_state)
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer.start()

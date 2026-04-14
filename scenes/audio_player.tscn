@@ -3,16 +3,25 @@
 [ext_resource type="Script" uid="uid://bfnon0xbwj0cc" path="res://scripts/audio_player.gd" id="1_1qhh7"]
 [ext_resource type="AudioStream" uid="uid://0uaca77e4r8h" path="res://audio/Kitty Knight Theme.wav" id="1_syohv"]
 [ext_resource type="AudioStream" uid="uid://bt4k7klhdq7bb" path="res://audio/Stage 1 - Forest Section.wav" id="2_qbjj0"]
+[ext_resource type="AudioStream" uid="uid://3vkcdgb1e6ro" path="res://audio/throne/Throne_Room.wav" id="3_107af"]
+[ext_resource type="AudioStream" uid="uid://cp7yaybx5sfx2" path="res://audio/dog_wizard/Dog_Wizard_Theme_Intro.wav" id="4_mt4ah"]
 [ext_resource type="AudioStream" uid="uid://dmv050sq08xqh" path="res://audio/sfx/MenuSelect.wav" id="4_qbjj0"]
-[ext_resource type="AudioStream" uid="uid://cmwlqgukb1vaf" path="res://audio/sfx/Dash.wav" id="5_50w30"]
-[ext_resource type="AudioStream" uid="uid://b7l7ja1vdokon" path="res://audio/sfx/Jump.wav" id="6_mrh1j"]
+[ext_resource type="AudioStream" uid="uid://cgh55whjy5lwb" path="res://audio/dog_wizard/Dog_Wizard_Theme_Calm.wav" id="5_8et3v"]
+[ext_resource type="AudioStream" uid="uid://brbwjopes57bm" path="res://audio/dog_wizard/Dog_Wizard_Theme_Transition.wav" id="6_lpsqn"]
+[ext_resource type="AudioStream" uid="uid://db1lsyv63a1bt" path="res://audio/dog_wizard/Dog_Wizard_Theme_Empowered.wav" id="7_ddj1p"]
 [ext_resource type="AudioStream" uid="uid://dqbcf2swkv2r5" path="res://audio/sfx/Death.wav" id="7_wiaen"]
 [ext_resource type="AudioStream" uid="uid://bltch2fx35jpy" path="res://audio/sfx/Land.wav" id="8_107af"]
 [ext_resource type="AudioStream" uid="uid://t0jkvvkkanya" path="res://audio/alex_sfx/Kitty_Knight_Checkpoint.wav" id="9_ffhcf"]
 [ext_resource type="AudioStream" uid="uid://s3nn1lvqa8e6" path="res://audio/sfx/Spring.wav" id="10_107af"]
+[ext_resource type="AudioStream" uid="uid://jps03o22k7wv" path="res://audio/alex_sfx/Kitty_Knight_New_Pounce.wav" id="10_mt4ah"]
+[ext_resource type="AudioStream" uid="uid://bbfb47ak6jrnf" path="res://audio/alex_sfx/Kitty_Knight_Pounce.wav" id="11_8et3v"]
+[ext_resource type="AudioStream" uid="uid://bnnwr180ndu1h" path="res://audio/cutscene_soundfx/SFX_Amulet_Break.wav" id="16_jjlgm"]
+[ext_resource type="AudioStream" uid="uid://cpf1h7akjinhv" path="res://audio/cutscene_soundfx/SFX_Castle_EarthQuake (1)-[AudioTrimmer.com].wav" id="17_jjlgm"]
+[ext_resource type="AudioStream" uid="uid://6sp85p7vktnv" path="res://audio/cutscene_soundfx/SFX_Thunder-[AudioTrimmer.com].wav" id="18_kbhea"]
+[ext_resource type="AudioStream" uid="uid://dm5xec512ht7c" path="res://audio/cutscene_soundfx/SFX_Wall_Crumble.wav" id="19_d67ob"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mfaxx"]
-clip_count = 2
+clip_count = 7
 clip_0/name = &"kitty_theme"
 clip_0/stream = ExtResource("1_syohv")
 clip_0/auto_advance = 1
@@ -21,11 +30,46 @@ clip_1/name = &"forest_theme"
 clip_1/stream = ExtResource("2_qbjj0")
 clip_1/auto_advance = 1
 clip_1/next_clip = 1
+clip_2/name = &"throne_room"
+clip_2/stream = ExtResource("3_107af")
+clip_2/auto_advance = 0
+clip_3/name = &"dog_intro"
+clip_3/stream = ExtResource("4_mt4ah")
+clip_3/auto_advance = 1
+clip_3/next_clip = 4
+clip_4/name = &"dog_calm"
+clip_4/stream = ExtResource("5_8et3v")
+clip_4/auto_advance = 0
+clip_5/name = &"dog_transition"
+clip_5/stream = ExtResource("6_lpsqn")
+clip_5/auto_advance = 1
+clip_5/next_clip = 6
+clip_6/name = &"dog_empowered"
+clip_6/stream = ExtResource("7_ddj1p")
+clip_6/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 0,
+"to_time": 1
+},
+Vector2i(3, 4): {
+"fade_beats": 1.0,
+"fade_mode": 2,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(4, 5): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(5, 6): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 3,
 "to_time": 1
 }
 }
@@ -33,6 +77,7 @@ Vector2i(-1, -1): {
 [node name="MusicPlayer" type="AudioStreamPlayer" unique_id=2055667392]
 process_mode = 3
 stream = SubResource("AudioStreamInteractive_mfaxx")
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 script = ExtResource("1_1qhh7")
@@ -43,11 +88,11 @@ pitch_scale = 2.4
 bus = &"SFX"
 
 [node name="DashPlayer" type="AudioStreamPlayer" parent="." unique_id=275002830]
-stream = ExtResource("5_50w30")
+stream = ExtResource("10_mt4ah")
 bus = &"SFX"
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="." unique_id=1309519477]
-stream = ExtResource("6_mrh1j")
+stream = ExtResource("11_8et3v")
 bus = &"SFX"
 
 [node name="DeathPlayer" type="AudioStreamPlayer" parent="." unique_id=1793349488]
@@ -65,3 +110,15 @@ bus = &"SFX"
 [node name="SpringPlayer" type="AudioStreamPlayer" parent="." unique_id=229590750]
 stream = ExtResource("10_107af")
 bus = &"SFX"
+
+[node name="Amulet" type="AudioStreamPlayer" parent="." unique_id=393151554]
+stream = ExtResource("16_jjlgm")
+
+[node name="Rumble" type="AudioStreamPlayer" parent="." unique_id=594848186]
+stream = ExtResource("17_jjlgm")
+
+[node name="Thunder" type="AudioStreamPlayer" parent="." unique_id=619616674]
+stream = ExtResource("18_kbhea")
+
+[node name="WallCrumble" type="AudioStreamPlayer" parent="." unique_id=111808965]
+stream = ExtResource("19_d67ob")

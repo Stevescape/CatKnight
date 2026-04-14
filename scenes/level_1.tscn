@@ -237,7 +237,7 @@ script = ExtResource("10_q0ron")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1971203800]
 sprite_frames = ExtResource("11_tdlki")
-animation = &"pounce_right"
+animation = &"fall_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=200980462]
 position = Vector2(0, 1)

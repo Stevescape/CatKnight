@@ -50,7 +50,7 @@ offset_top = -55.0
 offset_right = 764.0
 offset_bottom = 459.0
 mouse_filter = 2
-color = Color(0.30511022, 0.63053554, 0.38722607, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781326426]
 offset_right = 40.0

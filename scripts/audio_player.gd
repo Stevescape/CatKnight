@@ -4,7 +4,12 @@ var rng = RandomNumberGenerator.new()
 
 enum SONGS {
 	TITLE,
-	FOREST
+	FOREST,
+	THRONE,
+	DOG_INTRO,
+	DOG_CALM,
+	DOG_TRANSITION,
+	DOG_EMPOWERED,
 }
 
 enum SFX {
@@ -15,6 +20,10 @@ enum SFX {
 	DEATH,
 	CHECKPOINT,
 	SPRING,
+	AMULET,
+	QUAKE,
+	THUNDER,
+	CRUMBLE
 }
 
 var min_pitch = 0.75
@@ -45,12 +54,21 @@ var sfx_volume = 50:
 	$LandPlayer,
 	$DeathPlayer,
 	$CheckpointPlayer,
-	$SpringPlayer
+	$SpringPlayer,
+	$Amulet,
+	$Rumble,
+	$Thunder,
+	$WallCrumble
 ]
 
 const tracks = [
 	"kitty_theme",
 	"forest_theme",
+	"throne_room",
+	"dog_intro",
+	"dog_calm",
+	"dog_transition",
+	"dog_empowered",
 	]
 	
 func _play_music(clip_name: String):
@@ -83,9 +101,4 @@ func change_clip(song: SONGS):
 func _ready() -> void:
 	play()
 	
-func _process(delta):
-	var playback = get_stream_playback()
-	var playing_clip_name = stream.get_clip_name(get_stream_playback().get_current_clip_index())
-	if playback and playback.is_playing() == false:
-		playback.switch_to_clip_by_name(playing_clip_name) # loop manually
 	
