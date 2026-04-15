@@ -238,19 +238,6 @@ character = NodePath("../Player")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_v8pws")
 
-[node name="Finish Text" type="Sprite2D" parent="." unique_id=1153609864]
-position = Vector2(6203, -1431)
-offset = Vector2(-193, -30)
-
-[node name="Label" type="Label" parent="Finish Text" unique_id=251023306]
-offset_left = -49.0
-offset_top = -54.0
-offset_right = 37.0
-offset_bottom = 21.0
-text = "FINISH
-YIPPEEE
-CONGRATS"
-
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825 node_paths=PackedStringArray("hud") groups=["player"]]
 position = Vector2(-570, -900)
 collision_layer = 2
@@ -319,7 +306,8 @@ target_position = Vector2(-10, 0)
 script = ExtResource("23_hg84p")
 
 [node name="JumpMode" type="Label" parent="CanvasLayer" unique_id=213611422]
-offset_right = 54.0
+offset_left = 537.0
+offset_right = 591.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Variable Jump"
@@ -342,7 +330,8 @@ libraries/ = SubResource("AnimationLibrary_hnsmf")
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=2035591989]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -140.0
+offset_right = -100.0
 offset_bottom = 40.0
 
 [node name="Heart" type="TextureRect" parent="CanvasLayer/HUD" unique_id=488765015]

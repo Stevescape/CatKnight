@@ -24,7 +24,8 @@ enum SFX {
 	AMULET,
 	QUAKE,
 	THUNDER,
-	CRUMBLE
+	CRUMBLE,
+	PAPER,
 }
 
 var min_pitch = 0.75
@@ -59,7 +60,8 @@ var sfx_volume = 50:
 	$Amulet,
 	$Rumble,
 	$Thunder,
-	$WallCrumble
+	$WallCrumble,
+	$Paper,
 ]
 
 const tracks = [

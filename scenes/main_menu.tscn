@@ -308,6 +308,62 @@ region = Rect2(7680, 0, 640, 360)
 atlas = ExtResource("6_rcqid")
 region = Rect2(8320, 0, 640, 360)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(8320, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(7680, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(7040, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woojs"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(6400, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mo7p"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(5760, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0rbc"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(5120, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u42ic"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(4480, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6kpd"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(3840, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mkqg"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8m0w"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilfvj"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8u31"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkw73"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p070q"]
+atlas = ExtResource("6_rcqid")
+region = Rect2(0, 0, 640, 360)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_woojs"]
 animations = [{
 "frames": [{
@@ -541,6 +597,53 @@ animations = [{
 "loop": false,
 "name": &"pan",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flqon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcqid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woojs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mo7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0rbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u42ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6kpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mkqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8m0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilfvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8u31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkw73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p070q")
+}],
+"loop": false,
+"name": &"paper_pan",
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_jk1qb"]
@@ -594,7 +697,7 @@ script = ExtResource("1_ekxnf")
 [node name="background" type="AnimatedSprite2D" parent="." unique_id=2104431800]
 position = Vector2(320, 180)
 sprite_frames = SubResource("SpriteFrames_woojs")
-animation = &"pan"
+animation = &"paper_pan"
 autoplay = "pan"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=374090564]
