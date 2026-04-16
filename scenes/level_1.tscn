@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://bqlrwqx4mhh5h" path="res://scripts/enemy_states/enemy_chase_state.gd" id="25_75ls7"]
 [ext_resource type="Script" uid="uid://b1mtmfrm4munw" path="res://scripts/enemy_states/enemy_attack_state.gd" id="26_gwsl1"]
 [ext_resource type="Script" uid="uid://ck6fjc25g35oi" path="res://scripts/enemy_states/enemy_damaged_state.gd" id="27_lkded"]
+[ext_resource type="FontFile" uid="uid://dl1yu2anebd2q" path="res://fonts/Vest 9.ttf" id="27_rscm6"]
 [ext_resource type="Script" uid="uid://ch5j8qvgvvrb2" path="res://scenes/pause_menu.gd" id="29_mbb35"]
 [ext_resource type="Script" uid="uid://47kjicq1xbp6" path="res://scripts/volume_slider/master.gd" id="30_nossa"]
 [ext_resource type="Script" uid="uid://dpf18u0j2vch3" path="res://scripts/volume_slider/music.gd" id="31_hjqri"]
@@ -222,7 +223,7 @@ tile_map_data = PackedByteArray("AAAGAPj/AAABAAcAAAAGAPf/AAADAAcAAAAGAPb/AAABAAY
 tile_set = ExtResource("8_hg84p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1717357528 node_paths=PackedStringArray("character")]
-position = Vector2(-621, -901)
+position = Vector2(-620, -901)
 process_callback = 0
 limit_right = 12300
 limit_smoothed = true
@@ -239,7 +240,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_v8pws")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2135474825 node_paths=PackedStringArray("hud") groups=["player"]]
-position = Vector2(-570, -900)
+position = Vector2(-569, -900)
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("10_q0ron")
@@ -313,6 +314,27 @@ theme_override_fonts/font = ExtResource("34_tdlki")
 text = "Variable Jump"
 label_settings = SubResource("LabelSettings_gyffv")
 horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1771139630]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GameTimer" type="RichTextLabel" parent="CanvasLayer/PanelContainer" unique_id=387667876]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("27_rscm6")
+bbcode_enabled = true
+text = "[center]10:30"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1149825239]
 modulate = Color(1, 1, 1, 0)

@@ -2,4 +2,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		SpeedrunTimer.pause_timer()
 		SceneTransition.change_scene("res://scenes/win_screen.tscn")

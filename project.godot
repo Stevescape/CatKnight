@@ -21,6 +21,7 @@ Checkpoint="*uid://cf1eluf81fie8"
 SceneTransition="*uid://clhiu7hwj1ov5"
 AudioPlayer="*uid://b37ticwwchlfx"
 DialogueManager="*uid://c3rodes2l3gxb"
+SpeedrunTimer="*uid://bvbw0n1y82n3i"
 
 [dialogue_manager]
 

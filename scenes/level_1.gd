@@ -5,6 +5,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.change_clip(AudioPlayer.SONGS.FOREST)
+	SpeedrunTimer.start_timer()
 	#player.global_position = Checkpoint.checkpoint_pos
 	#$Camera2D.global_position = Checkpoint.checkpoint_pos
 
@@ -40,3 +41,5 @@ func _on_menu_pressed() -> void:
 	$PauseMenu.hide()
 	SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	
+func _process(delta: float) -> void:
+	%GameTimer.text = SpeedrunTimer.get_time_string()
