@@ -74,7 +74,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 var portraits := {
 	"Tiger Princess": preload("res://dialogue/portraits/tigerprincesssPortrait.png"),
-	"Dog Wizard": preload("res://dialogue/portraits/(TEMP)dogWizardPortrait.png"),
+	"Dog Wizard": preload("res://dialogue/portraits/dogWizardPortrait.png"),
 	"Rat Knight": preload("res://dialogue/portraits/ratKnightPortrait.png"),
 	"Bird Knight": preload("res://dialogue/portraits/birdKnightPortrait.png"),
 }

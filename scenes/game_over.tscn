@@ -14,9 +14,16 @@ mouse_filter = 2
 script = ExtResource("1_xeevv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=659123182]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -74.0
+offset_right = -665.56366
+offset_bottom = -356.55554
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(15.921053, 9)
 color = Color(0, 0, 0, 1)
 

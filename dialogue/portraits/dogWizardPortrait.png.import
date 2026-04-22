@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8867dd03hp20"
-path="res://.godot/imported/(TEMP)dogWizardPortrait.png-b53778a18e3dfe0b94a0ff000a2bdcee.ctex"
+uid="uid://cxsi1hur2llea"
+path="res://.godot/imported/dogWizardPortrait.png-fef4b1d394bd41793c72395f16d1a159.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialogue/portraits/(TEMP)dogWizardPortrait.png"
-dest_files=["res://.godot/imported/(TEMP)dogWizardPortrait.png-b53778a18e3dfe0b94a0ff000a2bdcee.ctex"]
+source_file="res://dialogue/portraits/dogWizardPortrait.png"
+dest_files=["res://.godot/imported/dogWizardPortrait.png-fef4b1d394bd41793c72395f16d1a159.ctex"]
 
 [params]
 

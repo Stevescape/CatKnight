@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://d3qay0bvtman7" path="res://scripts/pounce_flower/cooldown.gd" id="5_0rg3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27bay"]
-size = Vector2(127, 127)
+size = Vector2(161.99991, 183.25002)
 
 [sub_resource type="Animation" id="Animation_ggavl"]
 length = 0.001
@@ -51,12 +51,12 @@ collision_mask = 0
 script = ExtResource("1_j0uor")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306298971]
-position = Vector2(0.7999878, 1.2400055)
-scale = Vector2(0.19999999, 0.16000003)
+position = Vector2(-3.200007, -3.2599974)
+scale = Vector2(0.2624999, 0.23031256)
 texture = ExtResource("2_ncakj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=273349118]
-position = Vector2(0.6999817, 1.1600037)
+position = Vector2(-2.8000093, -3.3399973)
 scale = Vector2(0.19999999, 0.16000003)
 shape = SubResource("RectangleShape2D_27bay")
 

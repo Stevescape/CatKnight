@@ -14,7 +14,7 @@ enum SONGS {
 }
 
 enum SFX {
-	OPTIONSFX,
+	OPTIONHOVERSFX,
 	JUMP,
 	DASH,
 	LAND,
@@ -26,6 +26,7 @@ enum SFX {
 	THUNDER,
 	CRUMBLE,
 	PAPER,
+	OPTIONSFX,
 }
 
 var min_pitch = 0.75
@@ -50,7 +51,7 @@ var sfx_volume = 50:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 @onready var SFX_PLAYERS = [
-	$OptionSelectPlayer,
+	$OptionHoverPlayer,
 	$JumpPlayer,
 	$DashPlayer,
 	$LandPlayer,
@@ -62,6 +63,7 @@ var sfx_volume = 50:
 	$Thunder,
 	$WallCrumble,
 	$Paper,
+	$OptionSelectPlayer,
 ]
 
 const tracks = [
@@ -74,6 +76,24 @@ const tracks = [
 	"dog_empowered",
 	"game_over",
 	]
+	
+func _enter_tree() -> void:
+	get_tree().node_added.connect(_on_node_added)
+
+
+func _on_node_added(node:Node) -> void:
+	if node is Button:
+		# If the added node is a button we connect to its mouse_entered and pressed signals
+		# and play a sound
+		node.mouse_entered.connect(_play_hover)
+		node.pressed.connect(_play_pressed)
+
+
+func _play_hover() -> void:
+	play_sfx(SFX.OPTIONHOVERSFX)
+
+func _play_pressed() -> void:
+	play_sfx(SFX.OPTIONSFX)
 	
 func _play_music(clip_name: String):
 	get_stream_playback().switch_to_clip_by_name(clip_name)

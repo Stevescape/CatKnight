@@ -14,7 +14,6 @@ func play_game_scene():
 	SceneTransition.change_scene("res://scenes/cutscene.tscn")
 
 func _on_start_pressed() -> void:
-	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 	$background.play("paper_pan")
 	anim_player.play_backwards("menu")
 	await get_tree().create_timer(1.5).timeout
@@ -28,17 +27,14 @@ func play_cloud_background():
 		$background.play("cloud")
 
 func _on_quit_pressed() -> void:
-	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 	get_tree().quit()
 
 
 func _on_back_pressed() -> void:
-	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 	%main_buttons.show()
 	$options_menu.hide()
 
 func _on_option_pressed() -> void:
-	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 	%main_buttons.hide()
 	$options_menu.show()
 
@@ -52,5 +48,4 @@ func _on_sfx_value_changed(value: float) -> void:
 	AudioPlayer.sfx_volume = value
 
 func _on_skip_pressed() -> void:
-	AudioPlayer.play_sfx(AudioPlayer.SFX.OPTIONSFX)
 	SceneTransition.change_scene("res://scenes/level_1.tscn")

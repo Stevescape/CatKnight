@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dmv050sq08xqh" path="res://audio/sfx/MenuSelect.wav" id="4_qbjj0"]
 [ext_resource type="AudioStream" uid="uid://cgh55whjy5lwb" path="res://audio/dog_wizard/Dog_Wizard_Theme_Calm.wav" id="5_8et3v"]
 [ext_resource type="AudioStream" uid="uid://brbwjopes57bm" path="res://audio/dog_wizard/Dog_Wizard_Theme_Transition.wav" id="6_lpsqn"]
-[ext_resource type="AudioStream" uid="uid://db1lsyv63a1bt" path="res://audio/dog_wizard/Dog_Wizard_Theme_Empowered.wav" id="7_ddj1p"]
+[ext_resource type="AudioStream" uid="uid://cr8c2aoe5lbwf" path="res://audio/dog_wizard/Dog_Wizard_Theme_Empowered.wav" id="7_ddj1p"]
 [ext_resource type="AudioStream" uid="uid://dqbcf2swkv2r5" path="res://audio/sfx/Death.wav" id="7_wiaen"]
 [ext_resource type="AudioStream" uid="uid://bltch2fx35jpy" path="res://audio/sfx/Land.wav" id="8_107af"]
 [ext_resource type="AudioStream" uid="uid://rq1kwxvsvbb3" path="res://audio/Kitty_Knight_Game_Over.wav" id="8_kbhea"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://6sp85p7vktnv" path="res://audio/cutscene_soundfx/SFX_Thunder-[AudioTrimmer.com].wav" id="18_kbhea"]
 [ext_resource type="AudioStream" uid="uid://dm5xec512ht7c" path="res://audio/cutscene_soundfx/SFX_Wall_Crumble.wav" id="19_d67ob"]
 [ext_resource type="AudioStream" uid="uid://chr645cs8gekx" path="res://audio/menu/SFX_Paper.wav" id="21_p65hj"]
+[ext_resource type="AudioStream" uid="uid://8s0vbx1dho3j" path="res://audio/sfx/Blip3.wav" id="22_d67ob"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_mfaxx"]
 clip_count = 8
@@ -94,7 +95,7 @@ bus = &"Music"
 script = ExtResource("1_1qhh7")
 
 [node name="OptionSelectPlayer" type="AudioStreamPlayer" parent="." unique_id=577494357]
-stream = ExtResource("4_qbjj0")
+stream = ExtResource("22_d67ob")
 pitch_scale = 2.4
 bus = &"SFX"
 
@@ -136,3 +137,8 @@ stream = ExtResource("19_d67ob")
 
 [node name="Paper" type="AudioStreamPlayer" parent="." unique_id=376264000]
 stream = ExtResource("21_p65hj")
+
+[node name="OptionHoverPlayer" type="AudioStreamPlayer" parent="." unique_id=1179285097]
+stream = ExtResource("4_qbjj0")
+volume_db = -7.0
+bus = &"SFX"
